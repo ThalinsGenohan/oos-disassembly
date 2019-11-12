@@ -19,8 +19,8 @@ RGBGFX := rgbgfx
 RGBLINK := rgblink
 
 RGBASM_FLAGS =
-RGBLINK_FLAGS = -n $(BUILD_DIR)$(ROM_NAME).sym -m $(BUILD_DIR)$(ROM_NAME).map -l contents/contents.link #-p $(FILLER)
-RGBFIX_FLAGS = -v -p 0 #-Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m 0x1B -r 3
+RGBLINK_FLAGS = -n $(BUILD_DIR)$(ROM_NAME).sym -m $(BUILD_DIR)$(ROM_NAME).map -l contents/contents.link -p $(FILLER)
+RGBFIX_FLAGS = -v -p $(FILLER) #-Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -k 01 -l 0x33 -m 0x1B -r 3
 
 #game.o: game.asm bank_*.asm
 #	rgbasm  -o game.o game.asm
@@ -35,10 +35,11 @@ BUILD_DIR := build/
 
 seasons_obj := \
 $(BUILD_DIR)unsorted.o \
+$(BUILD_DIR)home.o \
 $(BUILD_DIR)ram.o \
 
 .SUFFIXES:
-.PHONY: all seasons clean compare
+.PHONY: all seasons clean compare tools
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
@@ -51,16 +52,22 @@ seasons: $(NAME)-$(VERSION).gbc
 clean:
 	$(RM) $(seasons_obj) $(wildcard $(BUILD_DIR)$(NAME)-*.gbc) $(wildcard $(BUILD_DIR)$(NAME)-*.map) $(wildcard $(BUILD_DIR)$(NAME)-*.sym)
 	rm -r $(BUILD_DIR)
+	$(MAKE) clean -C tools/
 
 compare: seasons
 	@$(SHA1) -c roms.sha1
 
+tools:
+	$(MAKE) -C tools/
+
 define DEP
-$1: $2
+$1: $2 $$(shell tools/scan_includes $2)
 	$$(RGBASM) $$(RGBASM_FLAGS) -L -o $$@ $$<
 endef
 
-ifeq (,$(filter clean,$(MAKECMDGOALS)))
+ifeq (,$(filter clean tools,$(MAKECMDGOALS)))
+
+$(info $(shell $(MAKE) -C tools))
 
 $(foreach obj, $(seasons_obj), $(eval $(call DEP,$(obj),$(subst $(BUILD_DIR),,$(obj:.o=.asm)))))
 

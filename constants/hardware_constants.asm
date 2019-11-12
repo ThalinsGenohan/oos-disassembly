@@ -32,7 +32,7 @@ rev_Check_hardware_inc : MACRO
 ;NOTE: REVISION NUMBER CHANGES MUST BE ADDED
 ;TO SECOND PARAMETER IN FOLLOWING LINE.
     IF  \1 > 2.7 ;PUT REVISION NUMBER HERE
-        WARN    "Version \1 or later of 'hardware.inc' is required."
+        WARN    "Version \1 or later of 'hardware_constants.asm' is required."
     ENDC
 ENDM
 
@@ -774,3 +774,4 @@ NINTENDO_LOGO : MACRO
 ENDM
 
     ENDC ;HARDWARE_INC
+    
