@@ -1,3 +1,0 @@
-@ECHO OFF
-echo Cleaning build directory...
-C:\\cygwin64\\bin\\bash.exe --login -c "cd '/cygdrive/C/Repos/oos-disassembly'; make clean; if [ $? -eq 0 ]; then echo 'Clean successful!'; fi"
