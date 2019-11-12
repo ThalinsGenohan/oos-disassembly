@@ -1,0 +1,251 @@
+ROMX $01
+	org $4000
+	"ROM Bank $001"
+
+ROMX $02
+	org $4000
+	"ROM Bank $002"
+
+ROMX $03
+	org $4000
+	"ROM Bank $003"
+
+ROMX $04
+	org $4000
+	"ROM Bank $004"
+
+ROMX $05
+	org $4000
+	"ROM Bank $005"
+
+ROMX $06
+	org $4000
+	"ROM Bank $006"
+
+ROMX $07
+	org $4000
+	"ROM Bank $007"
+
+ROMX $08
+	org $4000
+	"ROM Bank $008"
+
+ROMX $09
+	org $4000
+	"ROM Bank $009"
+
+ROMX $0A
+	org $4000
+	"ROM Bank $00a"
+
+ROMX $0B
+	org $4000
+	"ROM Bank $00b"
+
+ROMX $0C
+	org $4000
+	"ROM Bank $00c"
+
+ROMX $0D
+	org $4000
+	"ROM Bank $00d"
+
+ROMX $0E
+	org $4000
+	"ROM Bank $00e"
+
+ROMX $0F
+	org $4000
+	"ROM Bank $00f"
+
+ROMX $10
+	org $4000
+	"ROM Bank $010"
+
+ROMX $11
+	org $4000
+	"ROM Bank $011"
+
+ROMX $12
+	org $4000
+	"ROM Bank $012"
+
+ROMX $13
+	org $4000
+	"ROM Bank $013"
+
+ROMX $14
+	org $4000
+	"ROM Bank $014"
+
+ROMX $15
+	org $4000
+	"ROM Bank $015"
+
+ROMX $16
+	org $4000
+	"ROM Bank $016"
+
+ROMX $17
+	org $4000
+	"ROM Bank $017"
+
+ROMX $18
+	org $4000
+	"ROM Bank $018"
+
+ROMX $19
+	org $4000
+	"ROM Bank $019"
+
+ROMX $1A
+	org $4000
+	"ROM Bank $01a"
+
+ROMX $1B
+	org $4000
+	"ROM Bank $01b"
+
+ROMX $1C
+	org $4000
+	"ROM Bank $01c"
+
+ROMX $1D
+	org $4000
+	"ROM Bank $01d"
+
+ROMX $1E
+	org $4000
+	"ROM Bank $01e"
+
+ROMX $1F
+	org $4000
+	"ROM Bank $01f"
+
+ROMX $20
+	org $4000
+	"ROM Bank $020"
+
+ROMX $21
+	org $4000
+	"ROM Bank $021"
+
+ROMX $22
+	org $4000
+	"ROM Bank $022"
+
+ROMX $23
+	org $4000
+	"ROM Bank $023"
+
+ROMX $24
+	org $4000
+	"ROM Bank $024"
+
+ROMX $25
+	org $4000
+	"ROM Bank $025"
+
+ROMX $26
+	org $4000
+	"ROM Bank $026"
+
+ROMX $27
+	org $4000
+	"ROM Bank $027"
+
+ROMX $28
+	org $4000
+	"ROM Bank $028"
+
+ROMX $29
+	org $4000
+	"ROM Bank $029"
+
+ROMX $2A
+	org $4000
+	"ROM Bank $02a"
+
+ROMX $2B
+	org $4000
+	"ROM Bank $02b"
+
+ROMX $2C
+	org $4000
+	"ROM Bank $02c"
+
+ROMX $2D
+	org $4000
+	"ROM Bank $02d"
+
+ROMX $2E
+	org $4000
+	"ROM Bank $02e"
+
+ROMX $2F
+	org $4000
+	"ROM Bank $02f"
+
+ROMX $30
+	org $4000
+	"ROM Bank $030"
+
+ROMX $31
+	org $4000
+	"ROM Bank $031"
+
+ROMX $32
+	org $4000
+	"ROM Bank $032"
+
+ROMX $33
+	org $4000
+	"ROM Bank $033"
+
+ROMX $34
+	org $4000
+	"ROM Bank $034"
+
+ROMX $35
+	org $4000
+	"ROM Bank $035"
+
+ROMX $36
+	org $4000
+	"ROM Bank $036"
+
+ROMX $37
+	org $4000
+	"ROM Bank $037"
+
+ROMX $38
+	org $4000
+	"ROM Bank $038"
+
+ROMX $39
+	org $4000
+	"ROM Bank $039"
+    
+ROMX $3A
+	org $4000
+	"ROM Bank $03a"
+    
+ROMX $3B
+	org $4000
+	"ROM Bank $03b"
+    
+ROMX $3C
+	org $4000
+	"ROM Bank $03c"
+    
+ROMX $3D
+	org $4000
+	"ROM Bank $03d"
+    
+ROMX $3E
+	org $4000
+	"ROM Bank $03e"
+    
+ROMX $3F
+	org $4000
+	"ROM Bank $03f"

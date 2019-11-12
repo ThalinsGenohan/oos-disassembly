@@ -1,0 +1,5 @@
+TEXT_HERO   EQUS "$03, $3d"
+
+TEXT_QUEST  EQUS "$03, $f3"
+
+TEXT_OUR    EQUS "$04, $65"
