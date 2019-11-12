@@ -34,7 +34,7 @@ RGBFIX_FLAGS = -v -p 0 #-Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLE
 BUILD_DIR := build/
 
 seasons_obj := \
-$(BUILD_DIR)game.o \
+$(BUILD_DIR)unsorted.o \
 $(BUILD_DIR)ram.o \
 
 .SUFFIXES:
