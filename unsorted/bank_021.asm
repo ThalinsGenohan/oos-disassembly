@@ -769,7 +769,7 @@ jr_021_4344:
     rrca
     jr nz, jr_021_4357
 
-    rst $10
+    rst AddAToHL
     ld [hl], d
     inc b
     dec d
@@ -1218,7 +1218,7 @@ jr_021_44d9:
     and b
     ld l, $01
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
     ld h, h
     ld l, a
     ld [bc], a
@@ -1510,7 +1510,7 @@ jr_021_4682:
     jp nc, $2061
 
     inc b
-    ld [hl+], a
+    ld [hli], a
     ccf
     ld bc, $0202
     nop
@@ -2088,7 +2088,7 @@ jr_021_4904:
     sbc $05
     cp d
     inc b
-    ld [hl+], a
+    ld [hli], a
     inc bc
     db $e3
     dec b
@@ -2753,7 +2753,7 @@ jr_021_4bf1:
     inc bc
     rst $00
     ld [bc], a
-    rst $10
+    rst AddAToHL
     inc bc
     ld a, [bc]
     ccf
@@ -3621,7 +3621,7 @@ jr_021_4f5d:
     rst $20
     xor h
     cp h
-    ld [hl+], a
+    ld [hli], a
 
 jr_021_4f85:
     ld c, d
@@ -4272,7 +4272,7 @@ Jump_021_5203:
     jr nz, jr_021_524a
 
     dec c
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_021_5226
@@ -5415,7 +5415,7 @@ jr_021_5666:
     call nz, Call_021_78c0
     ld c, c
     ld c, d
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     xor b
@@ -5547,7 +5547,7 @@ jr_021_56e5:
     ld hl, $ba70
     cp d
     cp c
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     add b
@@ -6909,7 +6909,7 @@ jr_021_5c7b:
     dec de
     dec de
     add hl, de
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_021_5cf7
@@ -7059,7 +7059,7 @@ jr_021_5d5d:
     ld c, a
     nop
     ld [$a41a], sp
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     add hl, bc
@@ -7137,7 +7137,7 @@ Jump_021_5dca:
     ld b, e
     ld [hl], $40
     ld e, b
-    ld [hl+], a
+    ld [hli], a
     ld d, a
     rst $08
     ld b, b
@@ -7544,7 +7544,7 @@ jr_021_5f9a:
     ld de, $5230
     ld [de], a
     ld l, l
-    ld [hl+], a
+    ld [hli], a
     ld [de], a
     ld l, [hl]
     ld e, l
@@ -7656,7 +7656,7 @@ jr_021_5fca:
     ld hl, $fd3e
     add hl, bc
     ld a, [bc]
-    ld [hl+], a
+    ld [hli], a
     ld hl, sp-$03
     inc hl
     inc h
@@ -7932,7 +7932,7 @@ jr_021_60dc:
     ld hl, $9681
     dec a
     ld a, $81
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld [hl], b
@@ -9001,7 +9001,7 @@ jr_021_65f9:
 
     inc d
     inc d
-    ld a, $00
+    ld a, $00   ; xor a
     cpl
     inc d
     inc d
@@ -10405,7 +10405,7 @@ jr_021_6c18:
     dec a
     ld a, $70
     ld d, e
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_021_6c80
@@ -10496,7 +10496,7 @@ jr_021_6c93:
     ld de, $1881
     nop
     inc e
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld h, d
@@ -11072,7 +11072,7 @@ jr_021_6f29:
     db $ed
     add c
     cp d
-    ld [hl+], a
+    ld [hli], a
     sub b
     cp c
     cp d
@@ -11329,7 +11329,7 @@ Jump_021_7071:
 
 jr_021_707b:
     add d
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_021_707d:
     ld [hl], b
@@ -11507,7 +11507,7 @@ jr_021_711b:
     ret nz
 
     inc b
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld d, e
@@ -11517,7 +11517,7 @@ jr_021_7134:
     ld b, b
     ld e, b
     call Call_021_6357
-    rst $10
+    rst AddAToHL
     ld d, h
     add sp, -$6b
     ld [hl], b
@@ -11676,7 +11676,7 @@ jr_021_71e0:
     ld d, d
     ld d, d
     add b
-    ld a, [hl+]
+    ld a, [hli]
     ld [hl], c
     add d
     ld [hl], b
@@ -11840,7 +11840,7 @@ Jump_021_7270:
     ld d, $17
     add b
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld [bc], a
@@ -12135,7 +12135,7 @@ jr_021_73bf:
     rla
     ld [hl], b
     ld d, $17
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld a, [de]
@@ -12288,7 +12288,7 @@ Jump_021_7473:
     db $fd
     ld d, e
     ld d, d
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     add b
     add c
@@ -12311,7 +12311,7 @@ Jump_021_7473:
     add c
     dec bc
     dec bc
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld a, [c]
@@ -13965,7 +13965,7 @@ jr_021_7bca:
 
     rst $30
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
     add h
 
 jr_021_7bda:

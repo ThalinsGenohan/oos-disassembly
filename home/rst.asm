@@ -8,7 +8,7 @@ RST_00::
 
     inc h
 jr_000_0007:
-    ld a, [hl+]
+    ld a, [hli]
 
 SECTION "rst08", ROM0
 RST_08::
@@ -16,7 +16,7 @@ RST_08::
     ld l, a
     jp hl
 
-SECTION "rst10", ROM0
+SECTION "rst10", ROM0   ; AddAToHL
 RST_10::
     add l
     ld l, a

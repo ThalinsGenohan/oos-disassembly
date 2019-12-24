@@ -108,13 +108,13 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $38
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     push de
     inc de
-    rst $10
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
+    rst AddAToHL
     dec d
     pop de
     rst $38
@@ -353,8 +353,8 @@ SECTION "ROM Bank $01c", ROMX
     ld l, l
     xor e
     rst $28
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     add hl, sp
     rst $38
     rst $38
@@ -364,7 +364,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     cp e
     ld bc, $01ef
     xor e
@@ -563,8 +563,8 @@ SECTION "ROM Bank $01c", ROMX
     rst $28
     rst $28
     ld bc, $efef
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     cp e
     ld a, l
     rst $38
@@ -676,7 +676,7 @@ SECTION "ROM Bank $01c", ROMX
     add c
     ld [hl], a
     add c
-    rst $10
+    rst AddAToHL
     nop
     rst $30
     rst $30
@@ -707,7 +707,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $28
     rst $28
     rst $00
-    rst $10
+    rst AddAToHL
     cp e
     ld a, l
     rst $38
@@ -803,7 +803,7 @@ SECTION "ROM Bank $01c", ROMX
     cp c
     and e
     sub l
-    ld a, [hl+]
+    ld a, [hli]
     cp l
     and b
     dec a
@@ -932,7 +932,7 @@ SECTION "ROM Bank $01c", ROMX
     ld d, l
     inc de
     ld d, a
-    rst $10
+    rst AddAToHL
     push de
     or c
     rst $38
@@ -1104,12 +1104,12 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     xor e
     xor e
-    rst $10
+    rst AddAToHL
     add hl, sp
     rst $28
     xor e
     xor e
-    rst $10
+    rst AddAToHL
     add hl, sp
     rst $38
     rst $38
@@ -1225,7 +1225,7 @@ SECTION "ROM Bank $01c", ROMX
     db $db
     sbc e
     xor d
-    ld a, [hl+]
+    ld a, [hli]
     xor d
     xor d
     and b
@@ -1486,7 +1486,7 @@ SECTION "ROM Bank $01c", ROMX
     ld b, l
     rst $38
     rst $00
-    rst $10
+    rst AddAToHL
     cp e
     rst $38
     rst $38
@@ -3014,9 +3014,9 @@ SECTION "ROM Bank $01c", ROMX
     ld a, l
     cp e
     cp e
-    rst $10
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
+    rst AddAToHL
     rst $28
     rst $38
     rst $38
@@ -3136,7 +3136,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     cp e
     rst $38
     rst $38
@@ -3525,8 +3525,8 @@ SECTION "ROM Bank $01c", ROMX
     cp e
     cp e
     cp e
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     rst $28
     rst $38
     rst $38
@@ -3542,8 +3542,8 @@ SECTION "ROM Bank $01c", ROMX
     xor e
     xor e
     xor e
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     rst $38
     rst $38
     rst $38
@@ -3616,7 +3616,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     cp e
-    rst $10
+    rst AddAToHL
     rst $28
     add e
     rst $28
@@ -3687,7 +3687,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $20
     db $db
@@ -3723,8 +3723,8 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     pop hl
     rst $20
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     pop de
     or a
     add a
@@ -3783,7 +3783,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     add c
     cp a
@@ -3815,7 +3815,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $00
     rst $28
@@ -3830,7 +3830,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $38
-    rst $10
+    rst AddAToHL
     rst $38
     rst $38
     rst $00
@@ -3909,7 +3909,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     cp l
     cp l
@@ -4199,7 +4199,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $38
     rst $00
@@ -4295,7 +4295,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $38
     rst $00
@@ -4327,7 +4327,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $28
     rst $38
@@ -4343,7 +4343,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $38
-    rst $10
+    rst AddAToHL
     rst $38
     rst $28
     rst $38
@@ -4421,7 +4421,7 @@ SECTION "ROM Bank $01c", ROMX
     rst $38
     rst $38
     rst $28
-    rst $10
+    rst AddAToHL
     rst $38
     rst $38
     cp e
@@ -5936,28 +5936,28 @@ SECTION "ROM Bank $01c", ROMX
     ld [bc], a
     cp [hl]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld [bc], a
     cp a
     ld [bc], a
     sub $03
     cp [hl]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld [bc], a
     cp a
     ld [bc], a
     sub $04
     cp [hl]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld [bc], a
     cp a
     ld [bc], a
     sub $05
     cp [hl]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld [bc], a
     cp a
     ld [bc], a
@@ -6744,9 +6744,9 @@ SECTION "ROM Bank $01c", ROMX
     ld c, $d2
     ld c, $06
     rrca
-    ld [hl+], a
+    ld [hli], a
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     ld c, [hl]
     rrca
@@ -7111,7 +7111,7 @@ jr_01c_5d88:
     ret nc
 
     dec b
-    rst $10
+    rst AddAToHL
     dec b
     sbc $05
     push hl
@@ -7191,7 +7191,7 @@ jr_01c_5d88:
     jp z, $d107
 
     rlca
-    rst $10
+    rst AddAToHL
     rlca
     sbc $07
     push hl
@@ -7276,7 +7276,7 @@ Jump_01c_5e7e:
     ret nc
 
     add hl, bc
-    rst $10
+    rst AddAToHL
     add hl, bc
     sbc $09
     push hl
@@ -7720,7 +7720,7 @@ jr_01c_5f76:
     ret nc
 
     db $10
-    rst $10
+    rst AddAToHL
     db $10
     sbc $10
     push hl
@@ -7978,7 +7978,7 @@ jr_01c_6136:
     inc d
     call $d214
     inc d
-    rst $10
+    rst AddAToHL
     inc d
     call c, $e114
     inc d
@@ -8123,9 +8123,9 @@ jr_01c_62b6:
     rla
     ld a, [de]
     rla
-    ld [hl+], a
+    ld [hli], a
     rla
-    ld a, [hl+]
+    ld a, [hli]
     rla
 
 jr_01c_62be:
@@ -8546,7 +8546,7 @@ jr_01c_63f0:
 
     dec h
     dec de
-    ld a, [hl+]
+    ld a, [hli]
     dec de
     cpl
     dec de
@@ -8759,15 +8759,15 @@ jr_01c_64f9:
     db $db
     ld hl, $2216
     ld sp, $4822
-    ld [hl+], a
+    ld [hli], a
     ld a, c
-    ld [hl+], a
+    ld [hli], a
     sub [hl]
-    ld [hl+], a
+    ld [hli], a
     cp a
-    ld [hl+], a
+    ld [hli], a
     ld a, [c]
-    ld [hl+], a
+    ld [hli], a
 
 jr_01c_651e:
     ld [hl-], a
@@ -8788,7 +8788,7 @@ jr_01c_651e:
     inc h
     cp [hl]
     inc h
-    rst $10
+    rst AddAToHL
     inc h
     xor $24
     ld a, [de]
@@ -8880,20 +8880,20 @@ jr_01c_6595:
     push af
     add hl, hl
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
     ld h, $2a
     ld b, a
-    ld a, [hl+]
+    ld a, [hli]
     ld [hl], c
-    ld a, [hl+]
+    ld a, [hli]
     add [hl]
-    ld a, [hl+]
+    ld a, [hli]
     xor c
-    ld a, [hl+]
+    ld a, [hli]
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     push hl
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_01c_65a8:
     ld [$1b2b], sp
@@ -8988,7 +8988,7 @@ jr_01c_65f3:
     ld l, $08
     cpl
     ld d, $2f
-    ld [hl+], a
+    ld [hli], a
     cpl
     dec l
     cpl
@@ -9263,7 +9263,7 @@ jr_01c_670e:
 jr_01c_6733:
     ld a, $0f
     ccf
-    ld [hl+], a
+    ld [hli], a
     ccf
     ld l, $3f
     ld b, l
@@ -9381,7 +9381,7 @@ jr_01c_6733:
     ld e, $44
     inc h
     ld b, h
-    ld a, [hl+]
+    ld a, [hli]
     ld b, h
     ld c, e
     ld b, h
@@ -9496,7 +9496,7 @@ jr_01c_67d7:
     ld c, l
     push af
     ld c, l
-    ld a, [hl+]
+    ld a, [hli]
     ld c, [hl]
     ccf
     ld c, [hl]
@@ -9620,7 +9620,7 @@ jr_01c_67d7:
     ld e, e
     nop
     ld e, h
-    ld a, [hl+]
+    ld a, [hli]
     ld e, h
     ld a, $5c
     ld e, a
@@ -9812,7 +9812,7 @@ jr_01c_6973:
     ld l, c
     cp d
     ld l, c
-    rst $10
+    rst AddAToHL
     ld l, c
     and $69
     dec d
@@ -9874,7 +9874,7 @@ jr_01c_69b2:
     ld [hl], b
     rst $08
     ld [hl], b
-    rst $10
+    rst AddAToHL
     ld [hl], b
     pop hl
     ld [hl], b
@@ -10188,7 +10188,7 @@ jr_01c_6a78:
     pop de
     adc c
     ld b, $8a
-    ld [hl+], a
+    ld [hli], a
     adc d
     ld d, [hl]
     adc d
@@ -10603,7 +10603,7 @@ jr_01c_6cdc:
     jp nc, $ee19
 
     add hl, de
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [de]
     ld a, [hl-]
     ld a, [de]
@@ -10851,17 +10851,17 @@ jr_01c_6dee:
     ld hl, $21f3
     ld b, $22
     rla
-    ld [hl+], a
+    ld [hli], a
 
 jr_01c_6e02:
     inc h
-    ld [hl+], a
+    ld [hli], a
     dec h
-    ld [hl+], a
+    ld [hli], a
     dec hl
-    ld [hl+], a
+    ld [hli], a
     cp d
-    ld [hl+], a
+    ld [hli], a
     dec [hl]
     inc hl
     ld b, d
@@ -10960,14 +10960,14 @@ jr_01c_6e46:
     or b
     add hl, hl
     ld de, $582a
-    ld a, [hl+]
+    ld a, [hli]
     ld [hl], a
-    ld a, [hl+]
+    ld a, [hli]
     sub c
-    ld a, [hl+]
+    ld a, [hli]
     jp nc, $ec2a
 
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     dec hl
     db $10
@@ -11081,7 +11081,7 @@ jr_01c_6ed6:
     ld sp, $3179
     sub c
     ld sp, $31b9
-    rst $10
+    rst AddAToHL
     ld sp, $31f2
     dec c
     ld [hl-], a
@@ -11219,7 +11219,7 @@ jr_01c_6efd:
     ld a, $bf
     ld a, $e9
     ld a, $ef
-    ld a, $00
+    ld a, $00   ; xor a
     ccf
     ld a, [de]
     ccf
@@ -11406,7 +11406,7 @@ jr_01c_6fc7:
     add $4d
     call c, $f94d
     ld c, l
-    ld a, [hl+]
+    ld a, [hli]
     ld c, [hl]
     ld a, $4e
     ld c, c
@@ -11479,7 +11479,7 @@ jr_01c_7069:
     ld d, e
     rst $00
     ld d, e
-    rst $10
+    rst AddAToHL
     ld d, e
     pop af
     ld d, e
@@ -11543,7 +11543,7 @@ jr_01c_7069:
     sub $57
     ld a, [$1357]
     ld e, b
-    ld a, [hl+]
+    ld a, [hli]
     ld e, b
     ld a, b
     ld e, b
@@ -11565,7 +11565,7 @@ jr_01c_7069:
     ld e, c
     inc b
     ld e, d
-    ld [hl+], a
+    ld [hli], a
     ld e, d
     inc [hl]
     ld e, d
@@ -11615,7 +11615,7 @@ jr_01c_7069:
     ld e, l
     xor b
     ld e, l
-    rst $10
+    rst AddAToHL
     ld e, l
     ld b, $5e
     rra
@@ -11725,7 +11725,7 @@ jr_01c_7069:
 
 
     ld h, h
-    ld a, [hl+]
+    ld a, [hli]
     ld h, l
     ld e, e
     ld h, l
@@ -12177,7 +12177,7 @@ jr_01c_7230:
     add l
     ld bc, $0786
     add [hl]
-    ld [hl+], a
+    ld [hli], a
     add [hl]
     jr nz, jr_01c_73a4
 
@@ -13626,7 +13626,7 @@ jr_01c_78c0:
     jr nz, jr_01c_78c8
 
 jr_01c_78c8:
-    ld [hl+], a
+    ld [hli], a
     ld [hl], h
     ld h, l
     ld l, l

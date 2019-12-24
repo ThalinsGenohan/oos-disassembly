@@ -28,7 +28,7 @@ SECTION "ROM Bank $029", ROMX
     rst $38
     ld l, h
     cp l
-    ld [hl+], a
+    ld [hli], a
     add hl, sp
     rst $38
     inc hl
@@ -189,7 +189,7 @@ jr_029_40c6:
     db $fc
     jp nz, $e2fe
 
-    ld a, $00
+    ld a, $00   ; xor a
     pop af
     rst $38
     db $fd
@@ -381,7 +381,7 @@ jr_029_41a4:
     db $10
     add e
     db $10
-    ld [hl+], a
+    ld [hli], a
     rst $38
     ld a, h
     ld de, $2028
@@ -457,7 +457,7 @@ jr_029_41e8:
     dec c
     sbc $ff
     ldh [$df], a
-    ld [hl+], a
+    ld [hli], a
     ld sp, $4000
     nop
     ld bc, $0300
@@ -519,7 +519,7 @@ jr_029_422a:
     add hl, hl
     ld c, a
     ld [hl], l
-    ld [hl+], a
+    ld [hli], a
     ccf
     rra
     rra
@@ -807,7 +807,7 @@ jr_029_4359:
     db $fc
     dec a
     cp $9f
-    ld [hl+], a
+    ld [hli], a
     cp $0d
     rst $38
     ld [$fe33], sp
@@ -1238,7 +1238,7 @@ jr_029_457a:
     rst $38
     nop
     ld [$21de], sp
-    rst $10
+    rst AddAToHL
     jr z, jr_029_4602
 
     inc e
@@ -1291,7 +1291,7 @@ jr_029_45b3:
     ld a, a
     nop
     ld [$21de], sp
-    rst $10
+    rst AddAToHL
     jr z, @-$03
 
     inc e
@@ -1351,7 +1351,7 @@ jr_029_45db:
     ld [de], a
     inc e
     nop
-    ld [hl+], a
+    ld [hli], a
     inc e
     jr c, jr_029_462c
 
@@ -1665,13 +1665,13 @@ jr_029_4749:
     rst $38
     add b
     nop
-    cp $00
+    cp $00  ; and a / or a
     rst $38
 
 jr_029_4754:
     ld b, $f7
     ld c, $cd
-    ld a, $00
+    ld a, $00   ; xor a
     ld e, $f4
     db $fc
     ldh [$fa], a
@@ -1716,7 +1716,7 @@ jr_029_4762:
     ld [$7f1f], sp
     jr nz, jr_029_4754
 
-    cp $00
+    cp $00  ; and a / or a
     ret nz
 
     rst $38
@@ -1758,7 +1758,7 @@ jr_029_4762:
     ld [bc], a
     call nz, $0238
     db $fc
-    cp $00
+    cp $00  ; and a / or a
     nop
     ret nz
 
@@ -1904,7 +1904,7 @@ jr_029_485f:
     ld e, d
     ei
     add [hl]
-    cp $00
+    cp $00  ; and a / or a
     sbc a
     ei
     rst $30
@@ -2213,7 +2213,7 @@ jr_029_49cd:
     ldh a, [rDIV]
     ld hl, sp+$02
     db $fc
-    cp $00
+    cp $00  ; and a / or a
     ld a, [hl]
     nop
     nop
@@ -2392,7 +2392,7 @@ jr_029_4a6b:
     db $fc
     ldh a, [$fe]
     db $f4
-    cp $00
+    cp $00  ; and a / or a
     db $fc
     ld a, [$fcfc]
     ld hl, sp+$38
@@ -2792,7 +2792,7 @@ jr_029_4c61:
     jr jr_029_4c61
 
     nop
-    cp $00
+    cp $00  ; and a / or a
     ld b, b
     ld bc, $0300
     rrca
@@ -2883,7 +2883,7 @@ jr_029_4cde:
     add b
     rst $00
     ld [bc], a
-    rst $10
+    rst AddAToHL
     add d
     xor $c4
     nop
@@ -2910,7 +2910,7 @@ jr_029_4cde:
     cp a
     ld d, $7f
     ld [hl], $02
-    ld a, [hl+]
+    ld a, [hli]
     rra
     di
     ccf
@@ -2965,7 +2965,7 @@ jr_029_4d3d:
 jr_029_4d48:
     ccf
     ld [bc], a
-    ld a, [hl+]
+    ld a, [hli]
     rra
     ld a, a
     ccf
@@ -3104,7 +3104,7 @@ jr_029_4dde:
     rlca
     ld bc, $1a1c
     ld a, a
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     add d
     ccf
@@ -3202,7 +3202,7 @@ jr_029_4e4b:
 
 jr_029_4e57:
     nop
-    ld a, [hl+]
+    ld a, [hli]
     and b
     ccf
     rra
@@ -3270,7 +3270,7 @@ jr_029_4e88:
     ccf
     rlca
     dec bc
-    ld a, [hl+]
+    ld a, [hli]
     ld bc, $0f82
     ld a, a
     ld sp, $1f7c
@@ -3287,7 +3287,7 @@ jr_029_4eaf:
     nop
     ld hl, sp-$04
     cp $ff
-    rst $10
+    rst AddAToHL
     jr c, @+$01
 
     jr c, jr_029_4eaf
@@ -3429,7 +3429,7 @@ jr_029_4efc:
     jr nz, jr_029_4f8e
 
     cp $3c
-    cp $00
+    cp $00  ; and a / or a
     ld b, b
     nop
     ret nz
@@ -3627,7 +3627,7 @@ jr_029_5018:
 jr_029_501b:
     ld c, $ff
     ld b, d
-    cp $00
+    cp $00  ; and a / or a
     ld l, h
     cp $fc
     cp $e8
@@ -3638,7 +3638,7 @@ jr_029_501b:
 
     ld a, e
     add [hl]
-    rst $10
+    rst AddAToHL
     ld l, [hl]
     adc $20
     ld a, h
@@ -3678,7 +3678,7 @@ jr_029_5051:
     rst $38
     nop
     rrca
-    rst $10
+    rst AddAToHL
     rst $28
 
 jr_029_505d:
@@ -3972,7 +3972,7 @@ jr_029_515f:
 
     rst $38
     ld l, h
-    cp $00
+    cp $00  ; and a / or a
     ld a, h
     rst $38
     db $fc
@@ -4014,7 +4014,7 @@ jr_029_515f:
     rlca
     rst $30
     cp b
-    rst $10
+    rst AddAToHL
     nop
     cp e
     adc a
@@ -4604,7 +4604,7 @@ jr_029_5484:
     ld b, d
     dec a
     ld b, c
-    ld a, $00
+    ld a, $00   ; xor a
     ld b, b
     ccf
     ld a, h
@@ -4625,7 +4625,7 @@ jr_029_5484:
     rst $38
     ld a, [$feff]
     db $fd
-    cp $00
+    cp $00  ; and a / or a
     cp $7c
     push af
     ld a, d
@@ -4782,7 +4782,7 @@ jr_029_5549:
     sbc b
     ei
     ld b, $1a
-    rst $10
+    rst AddAToHL
     ld l, [hl]
     adc $df
     ld [$1000], sp
@@ -4809,7 +4809,7 @@ jr_029_556c:
 
     rst $38
     rrca
-    rst $10
+    rst AddAToHL
     add sp, $00
 
 jr_029_558d:
@@ -4881,7 +4881,7 @@ jr_029_55d1:
     db $eb
     nop
     ld [hl], $dd
-    ld a, [hl+]
+    ld a, [hli]
     rst $38
     add b
     cp $0c
@@ -4949,7 +4949,7 @@ jr_029_55ed:
     ld a, a
     dec l
     ld [$2f77], sp
-    ld [hl+], a
+    ld [hli], a
     rra
     ld hl, $003f
 
@@ -5044,7 +5044,7 @@ jr_029_566b:
     ret c
 
     ld [$e41a], sp
-    cp $00
+    cp $00  ; and a / or a
     ldh [$c3], a
     nop
     rst $20
@@ -5136,7 +5136,7 @@ jr_029_56d0:
     ld bc, $ff75
     nop
     ld bc, $0101
-    ld a, [hl+]
+    ld a, [hli]
     sbc b
     rst $38
     ld [hl], a
@@ -5490,7 +5490,7 @@ jr_029_5876:
 
     ld h, b
     cp $dc
-    cp $00
+    cp $00  ; and a / or a
     cp b
     cp [hl]
     db $f4
@@ -5563,7 +5563,7 @@ jr_029_58aa:
     dec hl
     call c, $7c2b
     ccf
-    cp $00
+    cp $00  ; and a / or a
     ld c, a
 
 jr_029_58d5:
@@ -5729,7 +5729,7 @@ jr_029_5954:
     ld c, a
     ld h, a
     rra
-    ld a, $00
+    ld a, $00   ; xor a
     ld bc, $3e7d
     ld a, a
     nop
@@ -5757,7 +5757,7 @@ jr_029_5954:
 jr_029_59ab:
     db $ec
     inc c
-    ld [hl+], a
+    ld [hli], a
     ldh a, [$fe]
     dec de
     ld [$001f], sp
@@ -5790,7 +5790,7 @@ jr_029_59be:
 
     ld [hl], d
     ld hl, $0810
-    cp $00
+    cp $00  ; and a / or a
     cp $e0
     dec a
     ld [$ff70], sp
@@ -5931,7 +5931,7 @@ jr_029_5a6a:
     ld a, h
     or h
     ld c, b
-    cp $00
+    cp $00  ; and a / or a
     jr nc, jr_029_5a6a
 
     or [hl]
@@ -6120,7 +6120,7 @@ jr_029_5b32:
 jr_029_5b36:
     ld h, b
     cp $fc
-    cp $00
+    cp $00  ; and a / or a
     ldh [rSB], a
     stop
     or b
@@ -6209,11 +6209,11 @@ jr_029_5b7b:
     rra
     ld l, h
     inc de
-    ld a, $00
+    ld a, $00   ; xor a
     ld bc, $100f
     nop
     nop
-    cp $00
+    cp $00  ; and a / or a
     rst $38
     nop
     ld [bc], a
@@ -6478,7 +6478,7 @@ jr_029_5c9d:
     nop
     nop
     ld l, b
-    ld a, $00
+    ld a, $00   ; xor a
     ld b, c
     ld a, $80
     ld a, a
@@ -6667,7 +6667,7 @@ jr_029_5d78:
     ld a, [hl]
     ld e, a
     inc a
-    ld a, $00
+    ld a, $00   ; xor a
     inc bc
     rra
     nop
@@ -7155,7 +7155,7 @@ jr_029_5faf:
 
     ld e, [hl]
     cp h
-    cp $00
+    cp $00  ; and a / or a
     ld b, b
     nop
     nop
@@ -7172,7 +7172,7 @@ jr_029_5fd9:
     ld a, [de]
     sub b
     nop
-    ld a, $00
+    ld a, $00   ; xor a
     ld a, e
     inc e
     ld a, l
@@ -7256,7 +7256,7 @@ jr_029_601e:
     ccf
     rlca
     ld a, a
-    ld [hl+], a
+    ld [hli], a
     ld a, a
     sub b
     ccf
@@ -7477,7 +7477,7 @@ jr_029_610b:
 
 jr_029_6135:
     cp $ec
-    cp $00
+    cp $00  ; and a / or a
     ld l, h
     ld a, [$fcdc]
     ldh a, [$f8]
@@ -7728,7 +7728,7 @@ jr_029_61f4:
     ld [hl], $e5
     jp c, $c4fb
 
-    cp $00
+    cp $00  ; and a / or a
     ret c
 
     db $fc
@@ -8054,7 +8054,7 @@ jr_029_639f:
     ld hl, sp+$00
     or h
     ld c, b
-    ld a, [hl+]
+    ld a, [hli]
     call nc, $34ca
     jp z, $00f4
 
@@ -8151,7 +8151,7 @@ jr_029_6437:
     ld [hl], $3a
     dec b
     nop
-    ld [hl+], a
+    ld [hli], a
     dec e
     ld hl, $211e
     ld e, $11
@@ -8336,7 +8336,7 @@ jr_029_6508:
     ld bc, $05fe
     ld a, [$fc83]
     ld bc, $bcc2
-    cp $00
+    cp $00  ; and a / or a
     ret c
 
     ldh [$f0], a
@@ -8521,8 +8521,8 @@ jr_029_6563:
     nop
     ccf
     inc e
-    ld a, $00
-    cp $00
+    ld a, $00   ; xor a
+    cp $00  ; and a / or a
     inc c
     db $fc
     nop
@@ -8649,7 +8649,7 @@ jr_029_6687:
     rrca
     db $10
     rrca
-    ld [hl+], a
+    ld [hli], a
 
 jr_029_6692:
     dec e
@@ -8982,7 +8982,7 @@ jr_029_67cd:
     rrca
     rrca
     nop
-    cp $00
+    cp $00  ; and a / or a
     pop bc
     nop
     ld a, $bd
@@ -9301,7 +9301,7 @@ jr_029_6923:
     ld h, l
     rst $30
     ld l, l
-    rst $10
+    rst AddAToHL
     nop
     ld l, a
     cp e
@@ -9371,7 +9371,7 @@ jr_029_69a6:
 
     ldh a, [$f8]
     ldh a, [$f4]
-    ld [hl+], a
+    ld [hli], a
     ld hl, sp-$04
     ld bc, $fa08
     db $fc
@@ -9382,7 +9382,7 @@ jr_029_69a6:
     db $fc
 
 jr_029_69ba:
-    cp $00
+    cp $00  ; and a / or a
 
 jr_029_69bc:
     ld [c], a
@@ -9833,7 +9833,7 @@ jr_029_6b75:
     ld b, c
     ld a, a
     ld b, $3e
-    ld a, $00
+    ld a, $00   ; xor a
     nop
     inc h
     nop
@@ -10063,7 +10063,7 @@ Jump_029_6cac:
 
     ld a, [$fe60]
     nop
-    cp $00
+    cp $00  ; and a / or a
     nop
     db $fc
     nop
@@ -10079,7 +10079,7 @@ Jump_029_6cac:
     jr nc, jr_029_6d44
 
     sbc b
-    ld [hl+], a
+    ld [hli], a
     call c, $00fe
     inc c
     sbc $e0
@@ -10456,7 +10456,7 @@ jr_029_6e66:
     inc e
     ld sp, hl
     xor $d9
-    ld a, $00
+    ld a, $00   ; xor a
     inc sp
     call z, $30ce
     ld [c], a
@@ -10512,7 +10512,7 @@ jr_029_6eb7:
     ld a, a
     ld l, a
     ld a, $3e
-    ld [hl+], a
+    ld [hli], a
     ld a, $32
     ld l, $0f
     di
@@ -11329,7 +11329,7 @@ jr_029_722e:
     ld sp, hl
     ld b, $4d
     or d
-    cp $00
+    cp $00  ; and a / or a
     ccf
     ld [bc], a
     nop
@@ -11390,7 +11390,7 @@ jr_029_72b3:
     ld sp, hl
     ld b, $4d
     or d
-    cp $00
+    cp $00  ; and a / or a
     nop
     rlca
     nop
@@ -11915,7 +11915,7 @@ jr_029_74fb:
     rst JumpTable
     jr z, jr_029_74fb
 
-    ld a, [hl+]
+    ld a, [hli]
     xor l
     nop
     ld e, d
@@ -11972,11 +11972,11 @@ jr_029_7548:
 
 jr_029_754f:
     nop
-    ld a, $00
+    ld a, $00   ; xor a
     inc hl
     inc b
     ld h, c
-    ld [hl+], a
+    ld [hli], a
     inc bc
 
 jr_029_7557:
@@ -12063,7 +12063,7 @@ jr_029_75a5:
     rlca
     rlca
     ld d, $f8
-    ld [hl+], a
+    ld [hli], a
     db $fc
     ld bc, $4210
     add b
@@ -12726,7 +12726,7 @@ jr_029_7834:
     di
     nop
     add hl, sp
-    rst $10
+    rst AddAToHL
     pop de
     ccf
     ld [hl], c
@@ -13000,7 +13000,7 @@ jr_029_7988:
 
 jr_029_799e:
     db $fd
-    rst $10
+    rst AddAToHL
     rst $38
     and e
     ld bc, $df40
@@ -13036,12 +13036,12 @@ jr_029_799e:
     ld bc, $0255
 
 jr_029_79c7:
-    ld a, [hl+]
+    ld a, [hli]
     inc d
     inc b
     ld [$0080], sp
     ld [$0414], sp
-    ld [hl+], a
+    ld [hli], a
     ld a, [bc]
     ld d, c
     dec b
@@ -13324,12 +13324,12 @@ jr_029_7b02:
 
     jr nz, jr_029_7ac6
 
-    ld [hl+], a
+    ld [hli], a
     ret nz
 
     ld [hl], $c0
     nop
-    ld a, [hl+]
+    ld a, [hli]
     call nc, $946a
     ld c, h
     or b
@@ -13411,11 +13411,11 @@ Call_029_7b54:
 jr_029_7b61:
     jr nz, jr_029_7b23
 
-    ld [hl+], a
+    ld [hli], a
     ret nz
 
     ld [hl], $c0
-    ld a, [hl+]
+    ld a, [hli]
     call nc, Call_029_6a00
     sub h
     ld c, h
@@ -13944,7 +13944,7 @@ jr_029_7d9c:
 jr_029_7dad:
     inc bc
     inc bc
-    rst $10
+    rst AddAToHL
     nop
     inc c
     nop
@@ -13955,7 +13955,7 @@ jr_029_7dad:
     nop
     ld e, h
     nop
-    rst $10
+    rst AddAToHL
     nop
     nop
     or l
@@ -14101,7 +14101,7 @@ jr_029_7e29:
     add b
     ret nz
 
-    ld [hl+], a
+    ld [hli], a
     add b
     dec h
     inc bc
@@ -14406,7 +14406,7 @@ jr_029_7f8e:
     ld [$f6fe], sp
     rst $38
     ld a, c
-    ld a, [hl+]
+    ld a, [hli]
     ld a, a
     scf
     ccf

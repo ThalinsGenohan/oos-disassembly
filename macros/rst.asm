@@ -1,8 +1,8 @@
-;RST_00      EQU $00
-;RST_08      EQU $08
-;RST_10      EQU $10
+RST00       EQU $00
+RST08       EQU $08
+AddAToHL    EQU $10
 JumpTable   EQU $18
-;RST_20      EQU $20
-;RST_28      EQU $28
-;RST_30      EQU $30
-;RST_38      EQU $38
+RST20       EQU $20
+RST28       EQU $28
+RST30       EQU $30
+RST38       EQU $38

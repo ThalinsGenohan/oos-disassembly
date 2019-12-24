@@ -46,7 +46,7 @@
     charmap "<JPERIOD2>", $1e
     charmap " ",        $20     ;    jr nz,
     charmap "!",        $21     ;    ld hl,
-    charmap "”",        $22     ;    ld [hl+], a
+    charmap "”",        $22     ;    ld [hli], a
     charmap "#",        $23
     charmap "$",        $24
     charmap "%",        $25
@@ -76,7 +76,7 @@
     charmap "=",        $3d ;    dec a
     charmap ">",        $3e
     charmap "?",        $3f
-    charmap "@",        $40
+    charmap "@",        $40 ;    ld b, b
     charmap "A",        $41 ;    ld b, c
     charmap "B",        $42 ;    ld b, d
     charmap "C",        $43 ;    ld b, e
@@ -108,7 +108,7 @@
     charmap "]",        $5d ;    ld e, l
     charmap "^",        $5e ;    ld e, [hl]
     charmap "•",        $5f ;    ld e, a
-    charmap "<APOS2>",  $60 ;    ld h, b
+    charmap "`",        $60 ;    ld h, b
     charmap "a",        $61 ;    ld h, c
     charmap "b",        $62 ;    ld h, d
     charmap "c",        $63 ;    ld h, e

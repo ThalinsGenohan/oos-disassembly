@@ -77,7 +77,7 @@ SECTION "ROM Bank $019", ROMX
     add l
     nop
     sub $08
-    rst $10
+    rst AddAToHL
     ld [$08d8], sp
     reti
 
@@ -300,7 +300,7 @@ jr_019_4154:
     nop
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     ld a, e
     nop
@@ -308,7 +308,7 @@ jr_019_4154:
     nop
     ld h, [hl]
     ld [bc], a
-    cp $00
+    cp $00  ; and a / or a
     add b
     ld [bc], a
     jp $8000
@@ -864,7 +864,7 @@ jr_019_4362:
     nop
     dec a
     nop
-    ld a, $00
+    ld a, $00   ; xor a
     ccf
     nop
     ld b, b
@@ -973,7 +973,7 @@ jr_019_43f7:
     ld [$08d4], sp
     push de
     ld [$03d6], sp
-    rst $10
+    rst AddAToHL
     inc bc
     sub a
     inc bc
@@ -1495,7 +1495,7 @@ jr_019_4689:
     ld [bc], a
 
 jr_019_46d8:
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     dec hl
     ld [bc], a
@@ -1669,7 +1669,7 @@ jr_019_471c:
     nop
     dec a
     nop
-    ld a, $00
+    ld a, $00   ; xor a
     ccf
     nop
     ld b, b
@@ -2276,7 +2276,7 @@ jr_019_4a72:
     inc b
     add hl, hl
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     add d
     nop
@@ -2888,7 +2888,7 @@ jr_019_4d61:
     inc b
     add hl, hl
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     dec hl
     rlca
@@ -3009,7 +3009,7 @@ jr_019_4d9e:
 
     add hl, hl
     dec b
-    ld a, [hl+]
+    ld a, [hli]
     dec b
     di
 
@@ -3651,7 +3651,7 @@ jr_019_5062:
     add [hl]
     rlca
     sub $01
-    rst $10
+    rst AddAToHL
     ld bc, $01d8
     reti
 
@@ -3667,7 +3667,7 @@ jr_019_5062:
     call nc, $d502
     ld [bc], a
     sub $02
-    rst $10
+    rst AddAToHL
     ld [bc], a
     ret c
 
@@ -3826,7 +3826,7 @@ jr_019_5162:
 
 
     inc bc
-    rst $10
+    rst AddAToHL
     inc b
     ret c
 
@@ -3885,7 +3885,7 @@ jr_019_51ef:
     jp nz, $dc00
 
     nop
-    cp $00
+    cp $00  ; and a / or a
     add b
     nop
     add c
@@ -3995,7 +3995,7 @@ jr_019_5284:
 jr_019_528c:
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     dec hl
     dec b
@@ -4072,7 +4072,7 @@ jr_019_52d2:
     ld h, $00
     ld a, [c]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     rlca
     ret c
 
@@ -4163,7 +4163,7 @@ jr_019_52d2:
     sub $05
     ld a, c
     ld bc, $017a
-    rst $10
+    rst AddAToHL
     dec b
     ret c
 
@@ -4591,7 +4591,7 @@ jr_019_550c:
     inc bc
     push hl
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $2b
     ld b, $2c
     ld b, $0d
@@ -4865,7 +4865,7 @@ jr_019_565e:
 
     add hl, hl
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc b
 
 jr_019_5670:
@@ -4916,7 +4916,7 @@ jr_019_5694:
 jr_019_569c:
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     sbc e
     dec b
@@ -5436,7 +5436,7 @@ jr_019_58dc:
     add l
     nop
     sub $00
-    rst $10
+    rst AddAToHL
     nop
     ret c
 
@@ -5638,7 +5638,7 @@ jr_019_5997:
 
     add hl, hl
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_019_59ff:
     inc bc
@@ -6256,7 +6256,7 @@ jr_019_5cbc:
     ld bc, $0028
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     ld d, e
     ld bc, $0085
@@ -6656,7 +6656,7 @@ jr_019_5e9b:
     ld [$0829], sp
     rst $20
     dec b
-    ld a, [hl+]
+    ld a, [hli]
     ld [$069f], sp
     and b
     ld b, $a1
@@ -6787,7 +6787,7 @@ jr_019_5e9b:
     inc b
     adc h
     inc b
-    ld [hl+], a
+    ld [hli], a
     ld b, $8e
     inc b
     adc a
@@ -6866,7 +6866,7 @@ jr_019_5e9b:
     nop
     ld a, [c]
     ld [bc], a
-    rst $10
+    rst AddAToHL
     rlca
     ret c
 
@@ -6957,7 +6957,7 @@ jr_019_6038:
     nop
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     reti
 
@@ -7191,7 +7191,7 @@ jr_019_6096:
     nop
     dec h
     dec b
-    ld [hl+], a
+    ld [hli], a
     dec b
     add l
     nop
@@ -7391,7 +7391,7 @@ jr_019_621c:
 jr_019_6224:
     add hl, hl
     nop
-    ld a, [hl+]
+    ld a, [hli]
     nop
     cp [hl]
     inc b
@@ -7567,7 +7567,7 @@ jr_019_62be:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -7667,7 +7667,7 @@ jr_019_6345:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -7769,7 +7769,7 @@ jr_019_63a9:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -7870,7 +7870,7 @@ jr_019_6414:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -7972,7 +7972,7 @@ jr_019_647f:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8074,7 +8074,7 @@ jr_019_64d5:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8166,7 +8166,7 @@ jr_019_6539:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8269,7 +8269,7 @@ jr_019_65a2:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8367,7 +8367,7 @@ jr_019_6601:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8406,7 +8406,7 @@ jr_019_6601:
 
     db $10
     ld c, b
-    ld [hl+], a
+    ld [hli], a
     db $10
     jr nz, @+$20
 
@@ -8559,7 +8559,7 @@ jr_019_66c9:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8751,7 +8751,7 @@ jr_019_6798:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8851,7 +8851,7 @@ jr_019_67f5:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -8952,7 +8952,7 @@ jr_019_6859:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9055,7 +9055,7 @@ jr_019_68bd:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9156,7 +9156,7 @@ jr_019_6921:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9257,7 +9257,7 @@ jr_019_6985:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9358,7 +9358,7 @@ jr_019_69e9:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
 
 Jump_019_6a00:
     db $10
@@ -9458,7 +9458,7 @@ jr_019_6a4d:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9557,7 +9557,7 @@ jr_019_6ab1:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9650,7 +9650,7 @@ jr_019_6b15:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -9753,7 +9753,7 @@ jr_019_6b79:
     db $10
     ret z
 
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nz
 
@@ -9861,7 +9861,7 @@ jr_019_6bdd:
     db $10
     ret z
 
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nz
 
@@ -9962,7 +9962,7 @@ jr_019_6c4a:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -10050,7 +10050,7 @@ jr_019_6ca3:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -10140,7 +10140,7 @@ jr_019_6d07:
     dec d
     db $10
     sbc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -10494,7 +10494,7 @@ jr_019_6e54:
     rrca
     db $10
     xor b
-    ld [hl+], a
+    ld [hli], a
     db $10
     db $10
     rlca
@@ -10919,7 +10919,7 @@ jr_019_7019:
     dec bc
     db $10
     ld e, b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ld d, b
     dec b
@@ -11013,13 +11013,13 @@ jr_019_707d:
     sub b
     ld b, $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     and b
     dec c
     db $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     or b
     add hl, de
@@ -11210,16 +11210,16 @@ jr_019_7137:
     adc b
 
 jr_019_7146:
-    ld [hl+], a
+    ld [hli], a
     db $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     and b
     dec c
     db $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ldh a, [$0b]
     db $10
@@ -11405,7 +11405,7 @@ jr_019_71f9:
     rst $38
     db $10
     ld l, b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ld [de], a
     nop
@@ -11591,7 +11591,7 @@ jr_019_72c1:
     ld d, b
     ld e, $10
     ld a, b
-    ld [hl+], a
+    ld [hli], a
     db $10
     jr nc, jr_019_72e8
 
@@ -11812,7 +11812,7 @@ jr_019_7399:
 
     db $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ld h, b
     add hl, de
@@ -11915,7 +11915,7 @@ jr_019_7401:
     inc de
     db $10
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ldh [rDIV], a
     db $10
@@ -12011,7 +12011,7 @@ jr_019_746b:
 
 jr_019_746e:
     adc b
-    ld [hl+], a
+    ld [hli], a
     db $10
     inc h
     ld hl, $6010
@@ -12087,7 +12087,7 @@ jr_019_74b6:
 
     call nc, $1020
     cp b
-    ld [hl+], a
+    ld [hli], a
     db $10
     ret nc
 
@@ -12423,7 +12423,7 @@ jr_019_75d0:
     db $10
     ret c
 
-    ld [hl+], a
+    ld [hli], a
     db $10
     ldh a, [$03]
     rst $38

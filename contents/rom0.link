@@ -12,4 +12,18 @@ ROM0
     org$0038
     "rst38"
     org $0040
+    "vblank"
+	org $0048
+	"lcd"
+	org $0050
+	"timer"
+	org $0058
+	"serial"
+	org $0060
+	"joypad"
+    org $0068
+    "High Home"
+    org $0100
+    "Header"
+    "Home"
     "ROM Bank $000"

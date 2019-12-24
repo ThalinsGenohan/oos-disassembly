@@ -9,7 +9,7 @@ SECTION "ROM Bank $03a", ROMX
     pop hl
     ldh [rP1], a
     or $02
-    rst $10
+    rst AddAToHL
     dec sp
     dec bc
     inc a
@@ -477,7 +477,7 @@ jr_03a_4114:
     inc bc
     ld h, b
     dec b
-    rst $10
+    rst AddAToHL
     inc sp
     dec bc
     sub $35
@@ -665,7 +665,7 @@ jr_03a_4261:
 jr_03a_4313:
     ld h, b
     dec b
-    rst $10
+    rst AddAToHL
     cpl
     dec bc
     ld h, b
@@ -739,7 +739,7 @@ jr_03a_4313:
     ld hl, $22d6
     dec bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     dec bc
     sub $29
     dec bc
@@ -779,7 +779,7 @@ jr_03a_4313:
     ld hl, $22d6
     dec bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     dec bc
     sub $29
     dec bc
@@ -1061,14 +1061,14 @@ jr_03a_43ed:
     jp c, $01e0
 
     ld d, $0c
-    ld [hl+], a
+    ld [hli], a
     jr @+$24
 
     inc c
     ldh [rSC], a
     ld d, $0c
     ldh [rSB], a
-    ld [hl+], a
+    ld [hli], a
     jr jr_03a_455d
 
     inc c
@@ -1134,7 +1134,7 @@ jr_03a_455d:
     inc c
     ld d, $0c
     ldh [rSB], a
-    ld [hl+], a
+    ld [hli], a
     jr jr_03a_45a5
 
     inc c
@@ -1142,7 +1142,7 @@ jr_03a_455d:
     ldh [rSB], a
 
 jr_03a_4588:
-    ld [hl+], a
+    ld [hli], a
     jr jr_03a_45ad
 
     inc c
@@ -1359,7 +1359,7 @@ jr_03a_45ad:
     inc b
     jp nc, $0224
 
-    rst $10
+    rst AddAToHL
     inc h
     ld [de], a
     db $d3
@@ -1408,7 +1408,7 @@ jr_03a_45ad:
     inc bc
     jp nc, $0325
 
-    rst $10
+    rst AddAToHL
     dec h
     ld [de], a
     db $d3
@@ -1810,7 +1810,7 @@ jr_03a_48e2:
     ld h, b
     inc bc
     dec [hl]
-    ld a, [hl+]
+    ld a, [hli]
     ld h, b
     ld [de], a
     dec [hl]
@@ -1829,7 +1829,7 @@ jr_03a_48e2:
     ld a, [hl-]
 
 jr_03a_48fc:
-    ld a, [hl+]
+    ld a, [hli]
     ld h, b
     ld [de], a
     ld a, [hl-]
@@ -1894,7 +1894,7 @@ jr_03a_4915:
     ld c, b
     rst $38
     or $02
-    rst $10
+    rst AddAToHL
     ld b, e
 
 jr_03a_494d:
@@ -1917,7 +1917,7 @@ jr_03a_494d:
     inc bc
     ld a, [hl-]
     inc bc
-    rst $10
+    rst AddAToHL
     add hl, sp
 
 jr_03a_4965:
@@ -1932,7 +1932,7 @@ jr_03a_496b:
     ld [hl], $03
     dec [hl]
     inc bc
-    rst $10
+    rst AddAToHL
     inc [hl]
     inc bc
     ldh [rSC], a
@@ -1944,7 +1944,7 @@ jr_03a_4977:
     ld b, $23
     ld b, $db
     ldh [rSB], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     jr jr_03a_4965
 
@@ -1984,7 +1984,7 @@ jr_03a_4977:
 jr_03a_49b4:
     ld [de], a
     ldh [rSC], a
-    ld [hl+], a
+    ld [hli], a
     ld [de], a
     ld h, b
     inc c
@@ -2002,7 +2002,7 @@ jr_03a_49b4:
     inc hl
     ld [de], a
     ldh [rSC], a
-    ld [hl+], a
+    ld [hli], a
     ld [de], a
     ld h, b
     inc c
@@ -2121,7 +2121,7 @@ jr_03a_4a20:
     inc bc
     ld a, [hl-]
     inc bc
-    rst $10
+    rst AddAToHL
 
 jr_03a_4a65:
     add hl, sp
@@ -2136,7 +2136,7 @@ jr_03a_4a6c:
     ld [hl], $03
     dec [hl]
     inc bc
-    rst $10
+    rst AddAToHL
     inc [hl]
     inc bc
     ldh [rSC], a
@@ -2182,7 +2182,7 @@ jr_03a_4a9e:
     ld c, c
     rst $38
     or $02
-    rst $10
+    rst AddAToHL
     ld a, $03
     sub $3d
     inc bc
@@ -2204,7 +2204,7 @@ jr_03a_4ab6:
     ld [hl], $03
     dec [hl]
     inc bc
-    rst $10
+    rst AddAToHL
 
 jr_03a_4ac5:
     inc [hl]
@@ -2370,7 +2370,7 @@ jr_03a_4b6e:
     ld [de], a
     ld h, b
     inc c
-    ld [hl+], a
+    ld [hli], a
     ld b, $22
     ld b, $22
     ld b, $d9
@@ -2390,7 +2390,7 @@ jr_03a_4b83:
     ld [de], a
     ld h, b
     inc c
-    ld [hl+], a
+    ld [hli], a
     ld b, $22
     ld b, $22
     ld b, $d9
@@ -2431,7 +2431,7 @@ jr_03a_4bb8:
     ld [hl], $03
     dec [hl]
     inc bc
-    rst $10
+    rst AddAToHL
     inc [hl]
 
 jr_03a_4bc9:
@@ -2444,7 +2444,7 @@ jr_03a_4bc9:
 
     ld sp, $3003
     inc bc
-    rst $10
+    rst AddAToHL
     cpl
     inc bc
     ldh [rSC], a
@@ -3409,7 +3409,7 @@ jr_03a_4dfd:
     ld h, $04
     ld h, b
     ld [bc], a
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_5068
 
     push de
@@ -3592,7 +3592,7 @@ Call_03a_50f8:
 
     ld h, b
     ld [bc], a
-    rst $10
+    rst AddAToHL
     jr z, @+$03
 
     jp nc, $0327
@@ -3949,7 +3949,7 @@ Jump_03a_5230:
 
     ld h, b
     ld c, b
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
     cpl
     ld [de], a
@@ -4191,7 +4191,7 @@ jr_03a_5369:
     inc e
     inc c
     ldh [rDIV], a
-    ld [hl+], a
+    ld [hli], a
     inc c
     ld h, b
     inc h
@@ -4330,14 +4330,14 @@ jr_03a_5404:
     inc e
     inc c
     ldh [rDIV], a
-    ld [hl+], a
+    ld [hli], a
     inc c
     ld h, b
     ld c, $d6
     ldh [$03], a
-    ld a, [hl+]
+    ld a, [hli]
     inc c
-    ld a, [hl+]
+    ld a, [hli]
     jr jr_03a_548b
 
     ld l, $d3
@@ -4477,7 +4477,7 @@ jr_03a_54a9:
     ld [bc], a
 
 jr_03a_54db:
-    ld [hl+], a
+    ld [hli], a
     ld c, e
     rst $38
     ret nc
@@ -4582,7 +4582,7 @@ jr_03a_5547:
     or $01
     add hl, hl
     ld a, [bc]
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     dec hl
     ld a, [bc]
@@ -4626,7 +4626,7 @@ jr_03a_5547:
     inc [hl]
     ld [bc], a
     ld [hl], $02
-    rst $10
+    rst AddAToHL
     dec [hl]
     ld [bc], a
     scf
@@ -4882,7 +4882,7 @@ jr_03a_5692:
 
     ld d, b
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld e, b
     inc bc
     call nc, $0250
@@ -5589,7 +5589,7 @@ jr_03a_5b07:
     dec [hl]
     dec b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     rst $38
     or $03
@@ -5931,7 +5931,7 @@ jr_03a_5d06:
 
     ld b, $f8
     nop
-    rst $10
+    rst AddAToHL
     jr c, jr_03a_5d12
 
     cpl
@@ -5942,7 +5942,7 @@ jr_03a_5d12:
 
     ld b, $f8
     nop
-    rst $10
+    rst AddAToHL
     jr c, jr_03a_5d1e
 
     cpl
@@ -6060,7 +6060,7 @@ jr_03a_5d36:
     inc b
     ld [hl-], a
     inc b
-    rst $10
+    rst AddAToHL
     ld [hl], $04
     ld a, [hl-]
     inc b
@@ -6163,7 +6163,7 @@ jr_03a_5dfd:
     rla
     inc b
     ld hl, sp+$00
-    rst $10
+    rst AddAToHL
     ld hl, sp+$64
     rla
     inc b
@@ -6202,7 +6202,7 @@ jr_03a_5dfd:
 
 jr_03a_5e87:
     ld bc, $012e
-    ld [hl+], a
+    ld [hli], a
     ld bc, $012d
     ld hl, $2b01
     ld bc, $011f
@@ -6541,7 +6541,7 @@ jr_03a_5ed0:
     call c, $20f8
     dec l
     ld bc, $00f8
-    rst $10
+    rst AddAToHL
     jr nc, jr_03a_617c
 
     inc sp
@@ -6665,7 +6665,7 @@ jr_03a_61ac:
     db $dd
     rlca
     sbc $03
-    rst $10
+    rst AddAToHL
     rlca
     pop hl
     inc bc
@@ -6745,7 +6745,7 @@ jr_03a_61ac:
     ld hl, sp+$50
     ld de, $f806
     nop
-    rst $10
+    rst AddAToHL
     ld hl, sp-$32
     dec d
     ld b, $f8
@@ -6770,19 +6770,19 @@ jr_03a_61ac:
     nop
     rst $38
     or $02
-    rst $10
+    rst AddAToHL
     dec l
     ld bc, $022f
-    rst $10
+    rst AddAToHL
     ld l, $01
     jr nc, jr_03a_632a
 
-    rst $10
+    rst AddAToHL
     cpl
 
 jr_03a_632a:
     ld bc, $0231
-    rst $10
+    rst AddAToHL
     jr nc, jr_03a_6331
 
     ld [hl-], a
@@ -6805,20 +6805,20 @@ jr_03a_6331:
     ld b, d
     ld bc, $60d0
     rrca
-    rst $10
+    rst AddAToHL
     jr nc, jr_03a_6352
 
     ld [hl-], a
 
 jr_03a_6352:
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld sp, $3301
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     ld bc, $0234
-    rst $10
+    rst AddAToHL
     inc sp
     ld bc, $0235
     sub $34
@@ -6946,7 +6946,7 @@ jr_03a_6373:
 
     jr nc, jr_03a_6491
 
-    rst $10
+    rst AddAToHL
     ld [hl], $03
 
 jr_03a_6491:
@@ -7086,7 +7086,7 @@ Call_03a_64f8:
     ld bc, $f806
     ld bc, $f6ff
     ld bc, $04e2
-    rst $10
+    rst AddAToHL
     ld hl, sp+$09
     db $fd
     db $fc
@@ -7337,13 +7337,13 @@ jr_03a_66f4:
     add hl, bc
     jr z, jr_03a_673b
 
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $60
     inc bc
 
 jr_03a_6735:
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     dec bc
     sub $2a
     add hl, bc
@@ -7351,7 +7351,7 @@ jr_03a_6735:
 jr_03a_673b:
     sub $28
     add hl, bc
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     dec hl
     ld c, $60
@@ -7361,7 +7361,7 @@ jr_03a_673b:
     dec bc
     sub $2b
     add hl, bc
-    ld a, [hl+]
+    ld a, [hli]
     add hl, bc
     dec hl
     ld a, [bc]
@@ -7403,7 +7403,7 @@ jr_03a_673b:
     dec hl
     rlca
     dec l
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03a_6780:
     ld sp, hl
@@ -7857,24 +7857,24 @@ jr_03a_6923:
     rlca
     dec e
     rlca
-    ld [hl+], a
+    ld [hli], a
     rlca
     ld h, b
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     inc b
     sub $22
     rlca
     ld hl, $d607
-    ld [hl+], a
+    ld [hli], a
     rlca
     ld h, b
 
 jr_03a_69d3:
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     inc b
 
 jr_03a_69d7:
@@ -7885,7 +7885,7 @@ jr_03a_69d7:
     inc h
     rlca
     ld h, $07
-    ld [hl+], a
+    ld [hli], a
     rlca
     dec e
     rlca
@@ -7956,7 +7956,7 @@ jr_03a_69d7:
     ld h, b
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     inc b
     sub $22
     rlca
@@ -7965,7 +7965,7 @@ jr_03a_69d7:
     ld h, b
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     inc b
     sub $22
     rlca
@@ -7974,7 +7974,7 @@ jr_03a_69d7:
     inc h
     rlca
     ld h, $07
-    ld [hl+], a
+    ld [hli], a
     rlca
     dec h
     rlca
@@ -8019,7 +8019,7 @@ jr_03a_69d7:
     dec b
     dec hl
     dec b
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     add hl, hl
     dec b
@@ -8057,12 +8057,12 @@ jr_03a_6a97:
     rlca
     jr z, jr_03a_6ac0
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, $07
     jr z, jr_03a_6ac6
 
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03a_6ac0:
     rlca
@@ -8076,7 +8076,7 @@ jr_03a_6ac6:
     dec bc
     sub $27
     add hl, bc
-    ld [hl+], a
+    ld [hli], a
     add hl, bc
     daa
     ld a, [bc]
@@ -8125,7 +8125,7 @@ jr_03a_6ac6:
     ld h, b
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc b
@@ -8133,7 +8133,7 @@ jr_03a_6ac6:
     inc bc
     ld h, b
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     ld sp, $0760
     sub $26
     ld c, $21
@@ -8155,21 +8155,21 @@ jr_03a_6ac6:
     rlca
     ld hl, $2407
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc b
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     sub $2b
     add hl, bc
-    ld a, [hl+]
+    ld a, [hli]
     add hl, bc
     dec hl
     ld a, [bc]
@@ -9199,15 +9199,15 @@ jr_03a_6ac6:
     or $02
     sub $23
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     ld h, $12
@@ -9224,15 +9224,15 @@ jr_03a_6ac6:
     ld b, $d6
     inc hl
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     ld h, $06
@@ -9254,15 +9254,15 @@ jr_03a_6ac6:
     ld b, $d6
     inc hl
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     ld h, $12
@@ -9279,15 +9279,15 @@ jr_03a_6ac6:
     ld b, $d6
     inc hl
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     ld h, $06
@@ -9311,7 +9311,7 @@ jr_03a_6ac6:
 
     add hl, hl
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03a_7269:
     ld [de], a
@@ -9335,20 +9335,20 @@ jr_03a_7277:
     ld b, $d6
     dec hl
     ld [de], a
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03a_727c:
     ld b, $60
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     inc bc
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     ld b, $d6
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
     jr z, jr_03a_7294
 
@@ -9377,14 +9377,14 @@ jr_03a_729e:
     ld b, $60
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     inc bc
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     ld b, $d6
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
     sub $28
     ld b, $60
@@ -9403,20 +9403,20 @@ jr_03a_72be:
     ld b, $d6
     dec hl
     ld [de], a
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03a_72c3:
     ld b, $60
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     inc bc
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     ld b, $d6
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
     jr z, jr_03a_72db
 
@@ -9561,15 +9561,15 @@ jr_03a_731a:
     ld b, $d6
     inc hl
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     rra
@@ -9596,11 +9596,11 @@ jr_03a_731a:
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     rra
@@ -9618,15 +9618,15 @@ jr_03a_731a:
     ld b, $d6
     inc hl
     ld [de], a
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     inc bc
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld b, $60
     ld b, $d6
     rra
@@ -9653,9 +9653,9 @@ jr_03a_731a:
     ld b, $60
     inc bc
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld b, $d6
-    ld [hl+], a
+    ld [hli], a
     inc bc
     inc hl
     inc bc
@@ -9767,7 +9767,7 @@ jr_03a_748e:
     ld b, $d6
     jr z, @+$08
 
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $27
     ld b, $28
     ld b, $25
@@ -9781,14 +9781,14 @@ jr_03a_748e:
     ld b, $60
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     inc bc
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $60
     ld b, $d6
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $2b
     ld b, $2c
     ld b, $2d
@@ -10427,7 +10427,7 @@ jr_03a_7513:
     or $12
     inc hl
     ld [bc], a
-    ld [hl+], a
+    ld [hli], a
     ld [bc], a
     ld hl, $2002
     ld [bc], a
@@ -10457,7 +10457,7 @@ jr_03a_789f:
     rst $38
     ld a, [c]
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78ab
 
     db $d3
@@ -10465,7 +10465,7 @@ jr_03a_789f:
 jr_03a_78ab:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78b1
 
     db $d3
@@ -10474,7 +10474,7 @@ jr_03a_78b1:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78b8
 
     db $d3
@@ -10483,7 +10483,7 @@ jr_03a_78b8:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78bf
 
     db $d3
@@ -10492,7 +10492,7 @@ jr_03a_78bf:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78c6
 
     db $d3
@@ -10501,7 +10501,7 @@ jr_03a_78c6:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78cd
 
     db $d3
@@ -10510,7 +10510,7 @@ jr_03a_78cd:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78d4
 
     db $d3
@@ -10518,7 +10518,7 @@ jr_03a_78cd:
 jr_03a_78d4:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78da
 
     db $d3
@@ -10527,7 +10527,7 @@ jr_03a_78da:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78e1
 
     db $d3
@@ -10536,7 +10536,7 @@ jr_03a_78e1:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78e8
 
     db $d3
@@ -10544,7 +10544,7 @@ jr_03a_78e1:
 jr_03a_78e8:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78ee
 
     db $d3
@@ -10553,7 +10553,7 @@ jr_03a_78ee:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78f5
 
     db $d3
@@ -10562,7 +10562,7 @@ jr_03a_78f5:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_78fc
 
     db $d3
@@ -10570,7 +10570,7 @@ jr_03a_78f5:
 jr_03a_78fc:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7902
 
     db $d3
@@ -10579,7 +10579,7 @@ jr_03a_7902:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7909
 
     db $d3
@@ -10588,7 +10588,7 @@ jr_03a_7909:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7910
 
     db $d3
@@ -10597,7 +10597,7 @@ jr_03a_7910:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7917
 
     db $d3
@@ -10606,7 +10606,7 @@ jr_03a_7917:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_791e
 
     db $d3
@@ -10615,7 +10615,7 @@ jr_03a_791e:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7925
 
     db $d3
@@ -10623,7 +10623,7 @@ jr_03a_791e:
 jr_03a_7925:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_792b
 
     db $d3
@@ -10632,7 +10632,7 @@ jr_03a_792b:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7932
 
     db $d3
@@ -10641,7 +10641,7 @@ jr_03a_7932:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7939
 
     db $d3
@@ -10650,7 +10650,7 @@ jr_03a_7939:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7940
 
     db $d3
@@ -10659,7 +10659,7 @@ jr_03a_7940:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7947
 
     db $d3
@@ -10668,7 +10668,7 @@ jr_03a_7947:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_794e
 
     db $d3
@@ -10677,7 +10677,7 @@ jr_03a_794e:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7955
 
     db $d3
@@ -10685,7 +10685,7 @@ jr_03a_794e:
 jr_03a_7955:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_795b
 
     db $d3
@@ -10694,7 +10694,7 @@ jr_03a_795b:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7962
 
     db $d3
@@ -10703,7 +10703,7 @@ jr_03a_7962:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7969
 
     db $d3
@@ -10712,7 +10712,7 @@ jr_03a_7969:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7970
 
     db $d3
@@ -10721,7 +10721,7 @@ jr_03a_7970:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7977
 
     db $d3
@@ -10730,7 +10730,7 @@ jr_03a_7977:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_797e
 
     db $d3
@@ -10738,7 +10738,7 @@ jr_03a_7977:
 jr_03a_797e:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7984
 
     db $d3
@@ -10747,7 +10747,7 @@ jr_03a_7984:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_798b
 
     db $d3
@@ -10756,7 +10756,7 @@ jr_03a_798b:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7992
 
     db $d3
@@ -10764,7 +10764,7 @@ jr_03a_798b:
 jr_03a_7992:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7998
 
     db $d3
@@ -10773,7 +10773,7 @@ jr_03a_7998:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_799f
 
     db $d3
@@ -10782,7 +10782,7 @@ jr_03a_799f:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79a6
 
     db $d3
@@ -10790,7 +10790,7 @@ jr_03a_799f:
 jr_03a_79a6:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79ac
 
     db $d3
@@ -10799,7 +10799,7 @@ jr_03a_79ac:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79b3
 
     db $d3
@@ -10808,7 +10808,7 @@ jr_03a_79b3:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79ba
 
     db $d3
@@ -10817,7 +10817,7 @@ jr_03a_79ba:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79c1
 
     db $d3
@@ -10826,7 +10826,7 @@ jr_03a_79c1:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79c8
 
     db $d3
@@ -10835,7 +10835,7 @@ jr_03a_79c8:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79cf
 
     db $d3
@@ -10843,7 +10843,7 @@ jr_03a_79c8:
 jr_03a_79cf:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79d5
 
     db $d3
@@ -10852,7 +10852,7 @@ jr_03a_79d5:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79dc
 
     db $d3
@@ -10861,7 +10861,7 @@ jr_03a_79dc:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79e3
 
     db $d3
@@ -10869,7 +10869,7 @@ jr_03a_79dc:
 jr_03a_79e3:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79e9
 
     db $d3
@@ -10878,7 +10878,7 @@ jr_03a_79e9:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79f0
 
     db $d3
@@ -10887,7 +10887,7 @@ jr_03a_79f0:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79f7
 
     db $d3
@@ -10896,7 +10896,7 @@ jr_03a_79f7:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_79fe
 
     db $d3
@@ -10904,7 +10904,7 @@ jr_03a_79f7:
 jr_03a_79fe:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a04
 
     db $d3
@@ -10913,7 +10913,7 @@ jr_03a_7a04:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a0b
 
     db $d3
@@ -10922,7 +10922,7 @@ jr_03a_7a0b:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a12
 
     db $d3
@@ -10931,7 +10931,7 @@ jr_03a_7a12:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a19
 
     db $d3
@@ -10940,7 +10940,7 @@ jr_03a_7a19:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a20
 
     db $d3
@@ -10949,7 +10949,7 @@ jr_03a_7a20:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a27
 
     db $d3
@@ -10957,7 +10957,7 @@ jr_03a_7a20:
 jr_03a_7a27:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a2d
 
     db $d3
@@ -10966,7 +10966,7 @@ jr_03a_7a2d:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a34
 
     db $d3
@@ -10975,7 +10975,7 @@ jr_03a_7a34:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a3b
 
     db $d3
@@ -10983,7 +10983,7 @@ jr_03a_7a34:
 jr_03a_7a3b:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a41
 
     db $d3
@@ -10992,7 +10992,7 @@ jr_03a_7a41:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a48
 
     db $d3
@@ -11001,7 +11001,7 @@ jr_03a_7a48:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a4f
 
     db $d3
@@ -11010,7 +11010,7 @@ jr_03a_7a4f:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a56
 
     db $d3
@@ -11019,7 +11019,7 @@ jr_03a_7a56:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a5d
 
     db $d3
@@ -11028,7 +11028,7 @@ jr_03a_7a5d:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a64
 
     db $d3
@@ -11037,7 +11037,7 @@ jr_03a_7a64:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a6b
 
     db $d3
@@ -11046,7 +11046,7 @@ jr_03a_7a6b:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a72
 
     db $d3
@@ -11055,7 +11055,7 @@ jr_03a_7a72:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a79
 
     db $d3
@@ -11063,7 +11063,7 @@ jr_03a_7a72:
 jr_03a_7a79:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a7f
 
     db $d3
@@ -11072,7 +11072,7 @@ jr_03a_7a7f:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a86
 
     db $d3
@@ -11081,7 +11081,7 @@ jr_03a_7a86:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a8d
 
     db $d3
@@ -11089,7 +11089,7 @@ jr_03a_7a86:
 jr_03a_7a8d:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a93
 
     db $d3
@@ -11098,7 +11098,7 @@ jr_03a_7a93:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7a9a
 
     db $d3
@@ -11107,7 +11107,7 @@ jr_03a_7a9a:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aa1
 
     db $d3
@@ -11116,7 +11116,7 @@ jr_03a_7aa1:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aa8
 
     db $d3
@@ -11124,7 +11124,7 @@ jr_03a_7aa1:
 jr_03a_7aa8:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aae
 
     db $d3
@@ -11133,7 +11133,7 @@ jr_03a_7aae:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ab5
 
     db $d3
@@ -11142,7 +11142,7 @@ jr_03a_7ab5:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7abc
 
     db $d3
@@ -11151,7 +11151,7 @@ jr_03a_7abc:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ac3
 
     db $d3
@@ -11160,7 +11160,7 @@ jr_03a_7ac3:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aca
 
     db $d3
@@ -11169,7 +11169,7 @@ jr_03a_7aca:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ad1
 
     db $d3
@@ -11177,7 +11177,7 @@ jr_03a_7aca:
 jr_03a_7ad1:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ad7
 
     db $d3
@@ -11186,7 +11186,7 @@ jr_03a_7ad7:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ade
 
     db $d3
@@ -11195,7 +11195,7 @@ jr_03a_7ade:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ae5
 
     db $d3
@@ -11203,7 +11203,7 @@ jr_03a_7ade:
 jr_03a_7ae5:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aeb
 
     db $d3
@@ -11212,7 +11212,7 @@ jr_03a_7aeb:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7af2
 
     db $d3
@@ -11221,7 +11221,7 @@ jr_03a_7af2:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7af9
 
     db $d3
@@ -11229,7 +11229,7 @@ jr_03a_7af2:
 jr_03a_7af9:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7aff
 
     db $d3
@@ -11238,7 +11238,7 @@ jr_03a_7aff:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b06
 
     db $d3
@@ -11247,7 +11247,7 @@ jr_03a_7b06:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b0d
 
     db $d3
@@ -11256,7 +11256,7 @@ jr_03a_7b0d:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b14
 
     db $d3
@@ -11265,7 +11265,7 @@ jr_03a_7b14:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b1b
 
     db $d3
@@ -11274,7 +11274,7 @@ jr_03a_7b1b:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b22
 
     db $d3
@@ -11282,7 +11282,7 @@ jr_03a_7b1b:
 jr_03a_7b22:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b28
 
     db $d3
@@ -11291,7 +11291,7 @@ jr_03a_7b28:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b2f
 
     db $d3
@@ -11300,7 +11300,7 @@ jr_03a_7b2f:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b36
 
     db $d3
@@ -11308,7 +11308,7 @@ jr_03a_7b2f:
 jr_03a_7b36:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b3c
 
     db $d3
@@ -11317,7 +11317,7 @@ jr_03a_7b3c:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b43
 
     db $d3
@@ -11326,7 +11326,7 @@ jr_03a_7b43:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b4a
 
     db $d3
@@ -11335,7 +11335,7 @@ jr_03a_7b4a:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b51
 
     db $d3
@@ -11343,7 +11343,7 @@ jr_03a_7b4a:
 jr_03a_7b51:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b57
 
     db $d3
@@ -11352,7 +11352,7 @@ jr_03a_7b57:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b5e
 
     db $d3
@@ -11375,7 +11375,7 @@ jr_03a_7b6e:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b75
 
     db $d3
@@ -11384,7 +11384,7 @@ jr_03a_7b75:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b7c
 
     db $d3
@@ -11398,7 +11398,7 @@ jr_03a_7b7c:
     ld h, $06
     ld h, $06
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b8c
 
     db $d3
@@ -11407,7 +11407,7 @@ jr_03a_7b8c:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b93
 
     db $d3
@@ -11416,7 +11416,7 @@ jr_03a_7b93:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7b9a
 
     db $d3
@@ -11426,7 +11426,7 @@ jr_03a_7b9a:
     dec b
     push de
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7ba2
 
     db $d3
@@ -11435,12 +11435,12 @@ jr_03a_7ba2:
     daa
     dec b
     push de
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $2a
     ld b, $d5
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $d5
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $d7
     jr z, jr_03a_7bb3
 
@@ -11450,7 +11450,7 @@ jr_03a_7bb3:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7bba
 
     db $d3
@@ -11458,7 +11458,7 @@ jr_03a_7bb3:
 jr_03a_7bba:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7bc0
 
     db $d3
@@ -11467,7 +11467,7 @@ jr_03a_7bc0:
     daa
     dec b
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7bc7
 
     db $d3
@@ -11489,7 +11489,7 @@ jr_03a_7bd6:
     daa
     dec bc
     push de
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7bdd
 
     db $d3
@@ -11497,7 +11497,7 @@ jr_03a_7bd6:
 jr_03a_7bdd:
     daa
     inc bc
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7be3
 
     db $d3
@@ -11505,7 +11505,7 @@ jr_03a_7bdd:
 jr_03a_7be3:
     daa
     inc bc
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7be9
 
     db $d3
@@ -11514,7 +11514,7 @@ jr_03a_7be9:
     daa
     inc bc
     ld l, $18
-    ld a, [hl+]
+    ld a, [hli]
     ld b, $2a
     ld b, $2e
     ld b, $2a
@@ -11530,7 +11530,7 @@ jr_03a_7be9:
 jr_03a_7c01:
     daa
     dec b
-    rst $10
+    rst AddAToHL
     jr z, jr_03a_7c07
 
     db $d3
@@ -11683,7 +11683,7 @@ jr_03a_7c43:
     ld bc, HeaderGlobalChecksum
     ld b, h
     ld bc, $0156
-    rst $10
+    rst AddAToHL
     ld c, [hl]
     ld bc, $014f
     ld d, [hl]
@@ -11758,7 +11758,7 @@ jr_03a_7c43:
 
     ld h, b
     inc bc
-    rst $10
+    rst AddAToHL
     ld hl, sp+$08
     dec a
     ld [$00f8], sp
@@ -11941,7 +11941,7 @@ jr_03a_7c43:
     ld c, e
     ld bc, $00f8
     ldh [rP1], a
-    rst $10
+    rst AddAToHL
     ld hl, sp+$04
     ld c, e
     ld [bc], a
@@ -11952,7 +11952,7 @@ jr_03a_7c43:
     ld c, e
     ld bc, $00f8
     ldh [rP1], a
-    rst $10
+    rst AddAToHL
     ld hl, sp+$04
     ld c, e
     ld [bc], a
@@ -11963,7 +11963,7 @@ jr_03a_7c43:
     ld c, e
     ld bc, $00f8
     ldh [rP1], a
-    rst $10
+    rst AddAToHL
     ld hl, sp+$04
     ld c, e
     ld [bc], a

@@ -103,12 +103,12 @@ jr_03d_403b:
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc e
@@ -149,12 +149,12 @@ jr_03d_403b:
     inc b
     ld h, b
     ld b, $d6
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
@@ -163,7 +163,7 @@ jr_03d_403b:
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
@@ -194,12 +194,12 @@ jr_03d_40c2:
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc e
@@ -271,7 +271,7 @@ jr_03d_410f:
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
 
@@ -293,7 +293,7 @@ jr_03d_4116:
 
 jr_03d_4126:
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc b
@@ -441,7 +441,7 @@ jr_03d_4193:
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     ld h, b
     inc h
@@ -1703,7 +1703,7 @@ jr_03d_45f7:
     pop hl
     ldh [rP1], a
     sub $28
-    ld a, [hl+]
+    ld a, [hli]
     db $d3
     jr z, jr_03d_481d
 
@@ -1802,7 +1802,7 @@ jr_03d_481d:
     rlca
     dec hl
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $25
     rlca
     ld h, b
@@ -1810,7 +1810,7 @@ jr_03d_481d:
     db $d3
     dec h
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $25
     rlca
     ld h, b
@@ -1818,7 +1818,7 @@ jr_03d_481d:
     pop de
     dec h
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $25
     rlca
     ld h, b
@@ -1827,7 +1827,7 @@ jr_03d_481d:
 
     dec h
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $25
     rlca
     ld h, b
@@ -2706,268 +2706,268 @@ jr_03d_4b7d:
     rst $38
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     jp nc, $072a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     jp nc, $072a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    jp nc, $072a
-
-    ld a, [hl+]
-    rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     jp nc, $072a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
-    jp nc, $072a
-
-    ld a, [hl+]
-    rlca
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
-    rlca
-    jp nc, $072a
-
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $072a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    jp nc, $072a
+
+    jp nc, $072a
+
+    ld a, [hli]
+    rlca
+    ld a, [hli]
     rlca
     call nc, $0726
     db $d3
@@ -3077,9 +3077,9 @@ jr_03d_4b7d:
     ld [$0e2d], sp
     inc l
     ld [$0e2b], sp
-    ld a, [hl+]
+    ld a, [hli]
     ld [$0e2b], sp
-    ld a, [hl+]
+    ld a, [hli]
     ld [$0e29], sp
     jr z, @+$0a
 
@@ -3432,9 +3432,9 @@ jr_03d_507d:
     ld [$0e2d], sp
     inc l
     ld [$0e2b], sp
-    ld a, [hl+]
+    ld a, [hli]
     ld [$0e2b], sp
-    ld a, [hl+]
+    ld a, [hli]
     ld [$0e29], sp
     jr z, jr_03d_50d5
 
@@ -3449,7 +3449,7 @@ jr_03d_50d5:
     inc l
     dec hl
     inc l
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     add hl, hl
     inc l
@@ -4041,172 +4041,172 @@ jr_03d_5230:
     jr z, @-$2a
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc h
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld b, d
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld d, $d0
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d4
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$d2d4], sp
     ld l, $16
     ld h, b
     ld d, $d4
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$d2d4], sp
     ld l, $16
     ld h, b
     ld d, $d4
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$d2d4], sp
     ld l, $16
     ld h, b
     ld d, $d4
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$d2d4], sp
     ld l, $16
     ld h, b
     ld d, $d4
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     jp nc, $0e2e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$d2d4], sp
     ld l, $16
     jp nc, $162e
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ed2], sp
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ad3], sp
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ad3], sp
     ld c, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld d, $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ad3], sp
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ad3], sp
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$2ad3], sp
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [$03fe], sp
     ld d, h
     rst $38
@@ -4264,41 +4264,41 @@ jr_03d_5230:
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
@@ -4352,41 +4352,41 @@ jr_03d_5230:
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
@@ -4449,14 +4449,14 @@ jr_03d_55de:
 
     dec hl
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     jr nc, @+$11
 
 jr_03d_5613:
     dec hl
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     ldh [rDIV], a
     call nc, $0f3c
@@ -4640,40 +4640,40 @@ jr_03d_569c:
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     call nc, $0f2b
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
@@ -4728,41 +4728,41 @@ jr_03d_569c:
     ld sp, $d40f
     dec hl
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec hl
     rrca
     ld sp, $2b0f
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     dec h
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     ld sp, hl
     pop hl
@@ -4781,7 +4781,7 @@ jr_03d_569c:
     ld sp, hl
     ld bc, $00e0
     db $d3
-    ld [hl+], a
+    ld [hli], a
     ld e, $f9
     pop hl
     ldh [rP1], a
@@ -4820,7 +4820,7 @@ jr_03d_569c:
     db $d3
     dec hl
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     jr nc, jr_03d_57df
 
@@ -4828,7 +4828,7 @@ jr_03d_569c:
 
 jr_03d_57d1:
     rrca
-    ld a, [hl+]
+    ld a, [hli]
     rrca
     jp nc, $0f3c
 
@@ -5023,7 +5023,7 @@ jr_03d_5856:
     ld h, b
     sub [hl]
     inc d
-    ld a, [hl+]
+    ld a, [hli]
     ld h, b
     inc bc
     inc d
@@ -5069,7 +5069,7 @@ jr_03d_5856:
     inc d
     rrca
     ld [de], a
-    ld a, [hl+]
+    ld a, [hli]
     ld h, b
     inc bc
     ld [de], a
@@ -5352,7 +5352,7 @@ jr_03d_5a50:
     pop de
     ld sp, $f607
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld b, d
     rlca
     ld h, b
@@ -5360,7 +5360,7 @@ jr_03d_5a50:
     db $d3
     ld b, d
     inc b
-    rst $10
+    rst AddAToHL
     ld b, d
     rlca
     sub $41
@@ -5529,7 +5529,7 @@ jr_03d_5b0f:
     ld h, b
     ld c, $f6
     ld [bc], a
-    rst $10
+    rst AddAToHL
     ld b, [hl]
     rlca
     ld h, b
@@ -5537,7 +5537,7 @@ jr_03d_5b0f:
     db $d3
     ld b, [hl]
     inc b
-    rst $10
+    rst AddAToHL
     ld b, [hl]
     rlca
     sub $45
@@ -6076,12 +6076,12 @@ jr_03d_5b6c:
     ldh [rP1], a
     or $01
     sub $2f
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     ld c, $28
     ld c, $23
     ld c, $24
-    ld a, [hl+]
+    ld a, [hli]
     jr z, jr_03d_5df9
 
     dec hl
@@ -6172,7 +6172,7 @@ jr_03d_5e30:
     ld [de], a
     or $01
     sub $2f
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     ld c, $28
     ld c, $2c
@@ -6232,7 +6232,7 @@ jr_03d_5e30:
     rlca
     inc l
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jr z, jr_03d_5eba
 
@@ -6248,12 +6248,12 @@ jr_03d_5e30:
     jr c, jr_03d_5ece
 
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     or $02
     sub $3b
@@ -6288,7 +6288,7 @@ jr_03d_5eba:
     sub $2b
 
 jr_03d_5ece:
-    ld a, [hl+]
+    ld a, [hli]
     jr z, jr_03d_5edf
 
     inc h
@@ -6302,7 +6302,7 @@ jr_03d_5ece:
     ld h, b
     inc bc
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_03d_5edf:
     inc b
@@ -6431,7 +6431,7 @@ jr_03d_5f5f:
     inc bc
     dec hl
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     inc b
@@ -6589,12 +6589,12 @@ jr_03d_5fdc:
     ld h, b
     ld e, b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc bc
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc b
@@ -6650,7 +6650,7 @@ jr_03d_5fdc:
     dec sp
     rlca
     ld h, b
-    ld a, [hl+]
+    ld a, [hli]
     sub $3c
     inc b
     ld a, $05
@@ -6693,11 +6693,11 @@ jr_03d_5fdc:
     ld h, b
     rlca
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     inc b
@@ -6768,14 +6768,14 @@ jr_03d_609c:
     or $0f
     inc e
     ld c, $60
-    ld a, [hl+]
+    ld a, [hli]
     or $0e
     rla
     inc e
     or $0f
     rla
     ld c, $60
-    ld a, [hl+]
+    ld a, [hli]
     or $0e
     inc e
     inc e
@@ -6916,7 +6916,7 @@ jr_03d_613b:
     inc b
     inc hl
     inc bc
-    rst $10
+    rst AddAToHL
     jr z, jr_03d_61a3
 
     add hl, hl
@@ -6939,7 +6939,7 @@ jr_03d_61a3:
     inc b
     dec sp
     inc bc
-    rst $10
+    rst AddAToHL
     ld b, b
     inc b
     ld b, c
@@ -6959,7 +6959,7 @@ jr_03d_61a3:
     call nc, $0247
     ld h, b
     inc bc
-    rst $10
+    rst AddAToHL
     add hl, hl
     ld c, $2c
     ld c, $30
@@ -6969,9 +6969,9 @@ jr_03d_61a3:
     db $d3
     jr nc, jr_03d_61d7
 
-    rst $10
+    rst AddAToHL
     cpl
-    ld a, [hl+]
+    ld a, [hli]
     inc l
 
 jr_03d_61d7:
@@ -6983,7 +6983,7 @@ jr_03d_61d7:
     db $d3
     inc sp
     inc b
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     ld b, [hl]
     ld sp, hl
@@ -6993,7 +6993,7 @@ jr_03d_61d7:
     ld c, $f9
     pop hl
     ldh [rP1], a
-    rst $10
+    rst AddAToHL
     ld sp, $300e
     ld c, $2f
     ld c, $2e
@@ -7182,7 +7182,7 @@ jr_03d_62ab:
 jr_03d_62d1:
     ld c, $2a
     ld c, $d4
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d8
     ld sp, $d40e
     ld sp, $d80e
@@ -7429,7 +7429,7 @@ jr_03d_6365:
     inc h
     ld c, $20
     ld c, $1f
-    ld a, [hl+]
+    ld a, [hli]
     call nc, $0e1f
     ret c
 
@@ -7446,7 +7446,7 @@ jr_03d_6417:
     ld c, $22
     ld c, $1f
     ld c, $20
-    ld a, [hl+]
+    ld a, [hli]
     call nc, $0e20
     ret c
 
@@ -7513,7 +7513,7 @@ jr_03d_646b:
     ld c, $28
     ld c, $2b
     ld c, $1d
-    ld a, [hl+]
+    ld a, [hli]
     call nc, $0e1d
     ret c
 
@@ -8315,23 +8315,23 @@ jr_03d_669d:
     nop
     ldh [rP1], a
     or $01
-    rst $10
+    rst AddAToHL
     ld e, $2c
     jr nz, jr_03d_69eb
 
     db $d3
     jr nz, jr_03d_69ac
 
-    rst $10
+    rst AddAToHL
     jr nz, @+$2e
 
-    ld [hl+], a
+    ld [hli], a
     ld c, l
     db $d3
-    ld [hl+], a
+    ld [hli], a
     dec bc
-    rst $10
-    ld [hl+], a
+    rst AddAToHL
+    ld [hli], a
     inc l
 
 jr_03d_69ac:
@@ -8362,10 +8362,10 @@ jr_03d_69ac:
     ld c, b
     sub $20
     inc l
-    ld [hl+], a
+    ld [hli], a
     ld c, l
     db $d3
-    ld [hl+], a
+    ld [hli], a
     dec bc
     sub $22
     inc l
@@ -8423,7 +8423,7 @@ jr_03d_69eb:
     inc l
     rra
     inc l
-    ld [hl+], a
+    ld [hli], a
     inc l
     dec h
     inc l
@@ -8452,7 +8452,7 @@ jr_03d_69eb:
     inc l
     daa
     inc l
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     dec l
     or b
@@ -8887,7 +8887,7 @@ jr_03d_6bdb:
     dec bc
     inc h
     dec bc
-    ld [hl+], a
+    ld [hli], a
     dec bc
     inc h
     dec bc
@@ -8906,7 +8906,7 @@ jr_03d_6bdb:
     ld sp, hl
     pop af
     ldh [rP1], a
-    ld a, [hl+]
+    ld a, [hli]
     inc l
     dec e
     ld e, b
@@ -8931,7 +8931,7 @@ jr_03d_6bdb:
     dec bc
     ld h, b
     dec bc
-    ld [hl+], a
+    ld [hli], a
     ld d, $24
     dec bc
     ld h, b
@@ -9129,7 +9129,7 @@ jr_03d_6d67:
     or $0e
     jr nz, jr_03d_6db9
 
-    ld [hl+], a
+    ld [hli], a
     inc l
 
 jr_03d_6d8f:
@@ -9201,15 +9201,15 @@ jr_03d_6dbd:
     dec b
     inc h
     dec b
-    ld [hl+], a
+    ld [hli], a
     ld b, [hl]
     ld sp, hl
     ld bc, $00e0
     db $d3
-    ld [hl+], a
+    ld [hli], a
     inc e
     pop de
-    ld [hl+], a
+    ld [hli], a
     ld c, $60
     ld c, $f9
     pop hl
@@ -9594,7 +9594,7 @@ jr_03d_6fa0:
     daa
     ld a, [bc]
     dec hl
-    ld a, [hl+]
+    ld a, [hli]
     add hl, hl
     inc b
     jr z, jr_03d_6fdd
@@ -9627,21 +9627,21 @@ jr_03d_6fdd:
     ld [bc], a
     dec hl
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     rlca
     ld h, b
     inc b
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     rlca
     ld h, b
     inc b
     pop de
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     dec hl
     rlca
@@ -9855,58 +9855,58 @@ jr_03d_710f:
     db $fc
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $12
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $09
     ld h, b
     add hl, bc
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
-    ld a, [hl+]
+    ld a, [hli]
     ld [de], a
-    ld a, [hl+]
+    ld a, [hli]
     ld a, [bc]
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     jp nc, $1c2e
 
@@ -9914,23 +9914,23 @@ jr_03d_710f:
     ld [hl], b
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     db $d3
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
-    ld a, [hl+]
+    ld a, [hli]
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     inc e
     ld l, $1c
     ld h, b
@@ -10003,7 +10003,7 @@ jr_03d_710f:
     ld c, $2e
     ld c, $2f
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     jr c, @-$05
 
     ld bc, $00e0
@@ -10011,8 +10011,8 @@ jr_03d_710f:
     ld sp, hl
     pop hl
     ldh [rP1], a
-    rst $10
-    ld a, [hl+]
+    rst AddAToHL
+    ld a, [hli]
     inc e
     sub $2f
     inc e
@@ -10230,657 +10230,657 @@ jr_03d_72cb:
     dec b
     ld h, b
     dec b
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     db $d3
     inc [hl]
     dec b
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     ld [hl-], a
     dec b
     call nc, $052d
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0532
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     inc a
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053c
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     inc a
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053c
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     inc a
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053c
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     inc a
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053c
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     scf
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0537
-    rst $10
+    rst AddAToHL
     inc a
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053c
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     cpl
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $052f
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     cpl
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $052f
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     cpl
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $052f
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $0539
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     ld a, $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     dec a
     dec b
     call nc, $053e
-    rst $10
+    rst AddAToHL
     dec sp
     dec b
     call nc, $053d
-    rst $10
+    rst AddAToHL
     add hl, sp
     dec b
     call nc, $053b
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0539
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     ld [hl], $05
     call nc, $0534
-    rst $10
+    rst AddAToHL
     inc [hl]
     dec b
     call nc, $0536
-    rst $10
+    rst AddAToHL
     cpl
     dec b
     call nc, $0534
-    rst $10
+    rst AddAToHL
     dec l
     dec b
     call nc, $052f
@@ -10974,7 +10974,7 @@ jr_03d_7766:
 
 jr_03d_7774:
     inc e
-    ld [hl+], a
+    ld [hli], a
     inc e
     jp nc, $0e22
 
@@ -11010,7 +11010,7 @@ jr_03d_7788:
     or $01
     sub $24
     inc e
-    rst $10
+    rst AddAToHL
     add hl, hl
     inc e
     sub $2a
@@ -11050,15 +11050,15 @@ jr_03d_7788:
     rlca
     sub $25
     rlca
-    rst $10
+    rst AddAToHL
     daa
     rlca
-    rst $10
+    rst AddAToHL
     jr z, jr_03d_77e0
 
     ret c
 
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ret c
 
@@ -11105,7 +11105,7 @@ jr_03d_77e0:
     call nc, $0e29
     sub $25
     inc e
-    ld [hl+], a
+    ld [hli], a
     rlca
     ld h, b
     inc bc
@@ -11122,11 +11122,11 @@ jr_03d_77e0:
     ld c, $25
     ld c, $22
     ld c, $d4
-    ld [hl+], a
+    ld [hli], a
     ld c, $d6
     dec de
     rlca
-    ld [hl+], a
+    ld [hli], a
     rlca
     daa
     inc bc
@@ -11221,7 +11221,7 @@ jr_03d_786e:
     call nc, $042d
     sub $2c
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     rlca
 
 jr_03d_78b9:
@@ -11237,7 +11237,7 @@ jr_03d_78b9:
     call nc, $042d
     sub $2c
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     ld h, b
     inc bc
@@ -11270,13 +11270,13 @@ jr_03d_78b9:
     or $01
     ld h, b
     ld a, b
-    rst $10
+    rst AddAToHL
     inc e
     jr z, jr_03d_7914
 
     ld b, [hl]
     call nc, $0a1f
-    rst $10
+    rst AddAToHL
     inc e
     jr z, jr_03d_791c
 
@@ -11294,17 +11294,17 @@ jr_03d_78b9:
 
     ld d, b
     call nc, $141c
-    rst $10
+    rst AddAToHL
     ld a, [de]
     dec b
     call nc, $051a
-    rst $10
+    rst AddAToHL
 
 jr_03d_7914:
     ld a, [de]
     dec b
     call nc, $051a
-    rst $10
+    rst AddAToHL
     inc e
     ld a, b
 
@@ -11319,13 +11319,13 @@ jr_03d_7924:
     inc d
 
 jr_03d_7925:
-    rst $10
+    rst AddAToHL
 
 jr_03d_7926:
     ld hl, $2428
     ld b, [hl]
     call nc, $0a24
-    rst $10
+    rst AddAToHL
     ld hl, $2428
     jr z, jr_03d_7959
 
@@ -11339,15 +11339,15 @@ jr_03d_7926:
 
     ld e, d
     call nc, $0a2f
-    rst $10
+    rst AddAToHL
     dec d
     dec b
     call nc, $0515
-    rst $10
+    rst AddAToHL
     dec d
     dec b
     call nc, $0515
-    rst $10
+    rst AddAToHL
     rla
     ld a, b
     call nc, $1e17
@@ -11674,7 +11674,7 @@ jr_03d_7ad8:
 jr_03d_7ae4:
     rlca
     or $0e
-    ld [hl+], a
+    ld [hli], a
     rlca
     or $0f
     inc hl
@@ -11683,29 +11683,7 @@ jr_03d_7ae4:
     inc hl
     rlca
     or $0f
-    ld [hl+], a
-    rlca
-    or $0e
-    ld e, $07
-    or $0f
-    inc hl
-    rlca
-    or $0e
-    inc hl
-    rlca
-    or $0f
-    ld e, $07
-    or $0e
-    ld [hl+], a
-    rlca
-    or $0f
-    inc hl
-    rlca
-    or $0e
-    inc hl
-    rlca
-    or $0f
-    ld [hl+], a
+    ld [hli], a
     rlca
     or $0e
     ld e, $07
@@ -11718,7 +11696,7 @@ jr_03d_7ae4:
     or $0f
     ld e, $07
     or $0e
-    ld [hl+], a
+    ld [hli], a
     rlca
     or $0f
     inc hl
@@ -11727,7 +11705,29 @@ jr_03d_7ae4:
     inc hl
     rlca
     or $0f
-    ld [hl+], a
+    ld [hli], a
+    rlca
+    or $0e
+    ld e, $07
+    or $0f
+    inc hl
+    rlca
+    or $0e
+    inc hl
+    rlca
+    or $0f
+    ld e, $07
+    or $0e
+    ld [hli], a
+    rlca
+    or $0f
+    inc hl
+    rlca
+    or $0e
+    inc hl
+    rlca
+    or $0f
+    ld [hli], a
     rlca
     or $0e
     ld e, $07
@@ -11999,7 +11999,7 @@ jr_03d_7c97:
     db $d3
 
 jr_03d_7c9a:
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     jp nc, $022a
 
@@ -12009,7 +12009,7 @@ jr_03d_7c9a:
 
     ld l, $69
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     jp nc, $022a
 
@@ -12100,12 +12100,12 @@ jr_03d_7c9a:
     ld h, $1c
     ld h, $07
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     jp nc, $022a
 
     db $d3
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     call nc, $1c26
     jp nc, $0e2e
@@ -12130,42 +12130,42 @@ jr_03d_7c9a:
 
     jp nc, $1c2e
 
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $2e
     dec d
-    ld a, [hl+]
+    ld a, [hli]
     rlca
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $2e
     inc e
-    ld a, [hl+]
+    ld a, [hli]
     rlca
     jp nc, $0e2a
 
     jp nc, $072a
 
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d2
-    ld a, [hl+]
+    ld a, [hli]
     ld c, $d2
     ld l, $1c
     ld l, $2a
     ld h, b
     ld [bc], a
-    ld a, [hl+]
+    ld a, [hli]
     dec b
-    ld a, [hl+]
+    ld a, [hli]
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
     ld l, $46
     ld h, b
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
     inc b
-    ld a, [hl+]
+    ld a, [hli]
     inc bc
-    ld a, [hl+]
+    ld a, [hli]
     inc b
     jp nc, $1c2e
 

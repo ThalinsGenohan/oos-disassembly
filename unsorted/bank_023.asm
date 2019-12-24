@@ -157,7 +157,7 @@ jr_023_4094:
 
     ld [hl], b
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
     inc b
     add hl, de
     or $ea
@@ -977,7 +977,7 @@ jr_023_4405:
     rst $30
     jr @+$2d
 
-    ld [hl+], a
+    ld [hli], a
     rst $30
     add hl, de
     or e
@@ -1179,7 +1179,7 @@ jr_023_44f8:
     jr nc, jr_023_4553
 
     inc b
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
 
@@ -1619,7 +1619,7 @@ jr_023_46ed:
     ld d, d
     ld hl, sp-$08
     add hl, de
-    ld [hl+], a
+    ld [hli], a
     inc hl
     ldh [rLCDC], a
     inc h
@@ -1689,7 +1689,7 @@ jr_023_4775:
     or c
     rst $38
     or c
-    ld a, [hl+]
+    ld a, [hli]
     add b
     add c
     add c
@@ -2351,7 +2351,7 @@ jr_023_4a31:
     rst $20
     xor h
     cp h
-    ld [hl+], a
+    ld [hli], a
 
 jr_023_4a62:
     ld c, d
@@ -2943,8 +2943,8 @@ jr_023_4cab:
     ld bc, $a41b
     or d
     ld d, d
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     ld a, [de]
     inc e
     and l
@@ -2999,7 +2999,7 @@ jr_023_4cab:
     nop
     inc c
     or e
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_023_4d04
@@ -3725,7 +3725,7 @@ jr_023_4fac:
 jr_023_4fc9:
     ld e, [hl]
     ld h, h
-    rst $10
+    rst AddAToHL
     ld l, l
     ld b, l
     cp [hl]
@@ -4095,7 +4095,7 @@ jr_023_5123:
     call nz, Call_023_78c0
     ld c, c
     ld c, d
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     xor b
@@ -4229,7 +4229,7 @@ jr_023_517b:
     ld hl, $ba70
     cp d
     cp c
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     add b
@@ -4880,7 +4880,7 @@ jr_023_5442:
     ret z
 
     add hl, de
-    rst $10
+    rst AddAToHL
     inc b
 
 Call_023_5452:
@@ -4895,8 +4895,8 @@ Call_023_5452:
     add hl, de
     ld b, $e0
     inc b
-    rst $10
-    ld [hl+], a
+    rst AddAToHL
+    ld [hli], a
     inc hl
     inc h
     and e
@@ -5575,7 +5575,7 @@ jr_023_56f0:
     ld [hl], d
     ld [hl], d
     add c
-    rst $10
+    rst AddAToHL
     jr jr_023_56be
 
     inc bc
@@ -5583,16 +5583,16 @@ jr_023_56f0:
 jr_023_573f:
     dec de
     add hl, de
-    rst $10
+    rst AddAToHL
     add b
     add d
     add c
-    rst $10
+    rst AddAToHL
     dec d
     ret z
 
     rla
-    rst $10
+    rst AddAToHL
     add b
     ld d, $16
     jr nz, @-$7e
@@ -5608,7 +5608,7 @@ jr_023_574f:
     ld d, $1b
     dec de
     add hl, de
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_023_573f
@@ -5617,18 +5617,18 @@ jr_023_574f:
     ld d, $1b
     dec de
     ld [hl], c
-    rst $10
+    rst AddAToHL
     ld a, [de]
     ret z
 
     inc e
-    rst $10
+    rst AddAToHL
     ld [hl], b
     add d
     ld [hl], c
 
 jr_023_576c:
-    rst $10
+    rst AddAToHL
     jr jr_023_5772
 
     inc c
@@ -5637,7 +5637,7 @@ jr_023_576c:
     add hl, de
 
 jr_023_5772:
-    rst $10
+    rst AddAToHL
     ld [hl], b
     ld [hl], d
 
@@ -5752,7 +5752,7 @@ jr_023_5793:
     ld c, a
     nop
     ld [$a41a], sp
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     add hl, bc
@@ -5790,7 +5790,7 @@ jr_023_5800:
 
     add hl, de
     ldh [$c8], a
-    rst $10
+    rst AddAToHL
     inc b
     rst $20
     or a
@@ -5799,8 +5799,8 @@ jr_023_5800:
     ret z
 
     rla
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     or a
     or h
     rrca
@@ -5829,7 +5829,7 @@ jr_023_5800:
     ld b, e
     ld [hl], $40
     ld e, b
-    ld [hl+], a
+    ld [hli], a
     ld d, a
     rst $08
     ld b, b
@@ -6358,7 +6358,7 @@ jr_023_5a16:
     ld hl, $fd3e
     add hl, bc
     ld a, [bc]
-    ld [hl+], a
+    ld [hli], a
     ld hl, sp-$03
     inc hl
     inc h
@@ -6651,7 +6651,7 @@ jr_023_5b0a:
     ld hl, $d781
     dec a
     ld a, $81
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld [hl], b
@@ -7025,7 +7025,7 @@ jr_023_5d62:
     ld h, h
     sub b
     sub c
-    ld [hl+], a
+    ld [hli], a
     ld d, d
     call nz, $f363
     ld h, h
@@ -7715,7 +7715,7 @@ jr_023_6057:
 
     inc d
     inc d
-    ld a, $00
+    ld a, $00   ; xor a
     cpl
     inc d
     inc d
@@ -9135,7 +9135,7 @@ jr_023_66b4:
     dec a
     ld a, $70
     ld d, e
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     jr jr_023_66e0
@@ -9237,7 +9237,7 @@ jr_023_66f3:
     ld de, $1881
     nop
     inc e
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld h, d
@@ -9838,7 +9838,7 @@ jr_023_697d:
     db $ed
     add c
     cp d
-    ld [hl+], a
+    ld [hli], a
     sub b
     cp c
     cp d
@@ -10007,9 +10007,9 @@ jr_023_6a0e:
     ld [hl], b
     ld [hl], c
     ld [de], a
-    rst $10
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
+    rst AddAToHL
     ld [de], a
     ld [de], a
     ld h, h
@@ -10073,7 +10073,7 @@ jr_023_6abf:
 
 jr_023_6ac1:
     add d
-    ld a, [hl+]
+    ld a, [hli]
 
 jr_023_6ac3:
     ld [hl], b
@@ -10150,7 +10150,7 @@ jr_023_6adf:
     inc b
     rst $30
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
     add hl, de
     ret z
 
@@ -10256,7 +10256,7 @@ jr_023_6b61:
     ret nz
 
     inc b
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld d, e
@@ -10264,7 +10264,7 @@ jr_023_6b61:
     ld b, b
     ld e, b
     call $6357
-    rst $10
+    rst AddAToHL
     ld d, h
     add sp, -$6b
 
@@ -10275,7 +10275,7 @@ jr_023_6b84:
     add hl, de
     add hl, bc
     ld [$0425], sp
-    rst $10
+    rst AddAToHL
 
 jr_023_6b8e:
     ld [hl], b
@@ -10426,7 +10426,7 @@ jr_023_6c0a:
     ld d, d
     ld d, d
     add b
-    ld a, [hl+]
+    ld a, [hli]
     ld [hl], c
     add d
     ld [hl], b
@@ -10584,7 +10584,7 @@ jr_023_6ca5:
     ld d, $17
     add b
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld [bc], a
@@ -10878,7 +10878,7 @@ jr_023_6e14:
     rla
     ld [hl], b
     ld d, $17
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld a, [de]
@@ -11029,7 +11029,7 @@ jr_023_6e97:
     db $fd
     ld d, e
     ld d, d
-    ld a, [hl+]
+    ld a, [hli]
     ld [bc], a
     add b
     add c
@@ -11052,7 +11052,7 @@ jr_023_6e97:
     add c
     dec bc
     dec bc
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     ld a, [c]
@@ -12757,7 +12757,7 @@ jr_023_7617:
 
     rst $30
     ld [hl], c
-    ld [hl+], a
+    ld [hli], a
 
 jr_023_7626:
     add h
@@ -12919,8 +12919,8 @@ jr_023_76b1:
     ld [de], a
     db $fd
     and $f2
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     ld d, e
     db $fd
     ld [de], a
@@ -12928,16 +12928,16 @@ jr_023_76b1:
     inc bc
     inc c
     ld [de], a
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     ld d, e
     db $fd
     ld d, d
     ld c, [hl]
     db $fd
     ld d, d
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     ld d, e
     db $fd
     inc b
@@ -14163,8 +14163,8 @@ jr_023_7baa:
     and a
     rst $28
     xor b
-    rst $10
-    rst $10
+    rst AddAToHL
+    rst AddAToHL
     cp d
     jr c, jr_023_7baa
 
@@ -14307,7 +14307,7 @@ jr_023_7c82:
     dec de
     inc e
     rst $30
-    ld [hl+], a
+    ld [hli], a
     inc hl
     inc h
     or d

@@ -19,4 +19,9 @@ ld_long: MACRO
     ENDC
 ENDM
 
+rombank: MACRO
+    ld a, \1
+    ld [rROMB0], a
+ENDM
+
 INCLUDE "macros/rst.asm"
