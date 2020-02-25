@@ -24,4 +24,8 @@ rombank: MACRO
     ld [rROMB0], a
 ENDM
 
+INCLUDE "macros/data.asm"
+INCLUDE "macros/enum.asm"
 INCLUDE "macros/rst.asm"
+
+INCLUDE "macros/scripts/audio.asm"
